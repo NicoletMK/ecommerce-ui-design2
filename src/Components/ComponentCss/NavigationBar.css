@@ -9,11 +9,17 @@
   background-color: #0C2340;
   color: #F15A22;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  height: 55px;
 }
 
 .navbar-left {
   width: 20%;
-  font-size: 20px;
+  font-size: 30px;
+}
+
+.link {
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Inherit the color from the parent element */
 }
 
 .navbar-center {
@@ -35,4 +41,11 @@
   width: 20%;
   display: flex;
   justify-content: space-around;
+}
+
+
+/* Icon */
+.iconNavBar {
+  color: #F15A22;
+  cursor: pointer;
 }

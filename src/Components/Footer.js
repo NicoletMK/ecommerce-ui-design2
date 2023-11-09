@@ -1,10 +1,16 @@
 import React from 'react';
 import "./ComponentCss/Footer.css";
+import {Link} from 'react-router-dom';
 
 function Footer(){
     return (
         <div className='footerAllContainer'>
-            <p className='contentForFooter'> *Need to add 3 links here | Copyright@ TechnoTreasures 2023. </p>
+            <ul className='FooterList'>
+                <Link to='ContactUsScreen' className='FooterLinks'> <li> Contact Us </li> </Link>
+                <Link to='FAQsScreen' className='FooterLinks'> <li> FAQs </li> </Link>
+                <Link to='PrivacyPolicyScreen' className='FooterLinks'> <li> Privacy Policy </li> </Link>
+                <li> Copyright@ TechnoTreasures 2023. </li>
+            </ul>
         </div>
     )
 }
