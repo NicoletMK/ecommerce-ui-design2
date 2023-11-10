@@ -1,0 +1,115 @@
+.MainContainerForCheckoutScreen {
+    overflow: scroll;
+    margin-bottom: 0.2%; /* Updated */
+}
+
+.MainContainerForCheckoutScreen h1 {
+    text-align: center;
+    font-size: 2.9rem; /* Remains the same for responsive font sizing */
+    color: #F15A22;
+}
+
+.MainContainerForCheckoutScreen h2 {
+    text-align: center;
+    font-size: 1.3rem; /* Remains the same for responsive font sizing */
+    margin-bottom: 2%; /* Updated */
+    color: #0C2340;
+}
+
+.ContainerForCheckoutScreen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.required-label::after {
+    content: ' *';
+    color: red;
+}
+
+.product-image {
+    height: 50px; /* This can remain fixed as it relates to the image size */
+    display: flex;
+}
+
+.product-image span {
+    padding-top: 1%; /* Updated */
+    padding-left: 3%; /* Updated */
+}
+
+.CheckoutForm {
+    margin: auto;
+    display: flex;
+    width: 80%;
+}
+
+.checkout-billing-info, .checkout-order-summary {
+    display: block;
+    flex: 1;
+    margin: 2% auto; /* Increased space between billing and checkout */
+    padding: 2%;
+}
+
+.checkout-billing-info h2 {
+    text-align: center;
+}
+
+.checkout-separator {
+    border-top: 1px solid #ccc;
+    padding-top: 1%; /* Updated */
+}
+
+.CheckoutForm form {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkout-form-group {
+    margin-bottom: 1%; /* Updated */
+}
+
+.checkout-form-group input {
+    padding: 0.5%; /* Updated */
+    width: 100%;
+    border: 1px solid #e6e4e4;
+    background-color: rgb(245, 248, 250);
+}
+
+.checkout-ul {
+    list-style: none;
+    padding: 0;
+}
+
+.checkout-li, .checkout-totalprice, .checkout-shipping-fee, .checkout-total {
+    margin-bottom: 0.5%; /* Updated */
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkout-payment-method {
+    margin-top: 2%; /* Updated */
+}
+
+.PlaceOrderButton {
+    background-color: #a3a3a3;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 2%; /* Updated */
+}
+
+.PlaceOrderButton:hover {
+    background-color: #e14f1e;
+}
+
+@media (max-width: 900px) {
+    .CheckoutForm {
+        flex-direction: column;
+    }
+
+    .checkout-billing-info, .checkout-order-summary {
+        width: 100%;
+        padding: 1%; /* Updated */
+        margin-bottom: 2%; /* Ensure spacing on smaller screens */
+    }
+}

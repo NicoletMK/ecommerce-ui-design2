@@ -1,3 +1,185 @@
-.MainContainerForSignUpScreen{
+.MainContainerForSignUpScreen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+   
+    overflow: scroll;
+  
+  }
+  
+  .MainContainerForSignUpScreen h1,
+  .MainContainerForSignUpScreen h2 {
+    color: #333;
+    margin: 10px auto;
+    /* Updated to percentage */
+  
+  }
+  
+  .SignupTitle {
+    padding-top: 30px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+  
+  }
+  
+  .signup-form {
+    border: 1px solid rgb(192, 186, 186);
+    border-radius: 5px;
+    padding: 2%;
+    /* Updated to percentage */
+    width: 80%;
+    /* Width of the form */
+    max-width: 500px;
+    /* Max width to maintain form size */
+    box-shadow: 2px 2px 5px 5px rgb(167, 165, 165);
+    margin: 5px;
+  }
+  
+  .Signup-h2 {
     text-align: center;
-}
+  }
+  
+  .signup-name,
+  .signup-email,
+  .signup-other {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2%;
+    /* Updated to percentage */
+  }
+  
+  .signup-name>div,
+  .signup-email>div,
+  .signup-other>div {
+    margin-bottom: 2%;
+    /* Updated to percentage */
+  }
+  
+  .signup-other label,
+  .signup-name label,
+  .signup-email label {
+    font-size: 0.8rem;
+    color: #333;
+    margin-bottom: 1%;
+    /* Updated to percentage */
+    display: block;
+  }
+  
+  .signup-other input,
+  .signup-name input,
+  .signup-email input {
+    padding: 1%;
+    /* Updated to percentage */
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    width: 97%;
+    font-size: 0.7rem;
+    /* Full width for better responsiveness */
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 0.8rem;
+    margin-top: 1%;
+    /* Updated to percentage */
+  }
+  .SignupTitle {
+    padding-top: 80px;
+    display: flex;
+    align-items: center;
+    
+
+  }
+  .SignupTitle img {
+    width: 300px;  /* or any other size */
+    height: auto; /* maintains the aspect ratio */
+  }
+  .signup-button-container {
+    margin-top: 2%;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+  }
+  
+  .signup-button {
+    background-color: #2f3232;
+    color: white;
+    border: none;
+    padding: 1% 2%;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 60%;
+    margin:auto;
+  
+    
+  }
+  
+  .signup-button:hover {
+    opacity: 0.8;
+  }
+  
+  .signup-text {
+    color: #007bff;
+    margin-top: 2%;
+    /* Updated to percentage */
+    cursor: pointer;
+    font-size: 0.7rem;
+    text-align: center;
+  }
+  
+  .signup-text:hover {
+    text-decoration: underline;
+  }
+  
+  .password-input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .show-hide-button {
+    position: absolute;
+    right: 1px;
+    
+    background: none;
+    border: none;
+    color: #1b1d1f;
+    cursor: pointer;
+  }
+  
+  .show-hide-button:hover {
+    color: #0a50f3;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .MainContainerForSignUpScreen {
+      padding-top: 10%;
+    }
+  
+    .SignupTitle {
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      
+  
+    }
+
+    .SignupTitle img {
+        width: 200px;  /* or any other size */
+        height: auto; /* maintains the aspect ratio */
+      }
+  
+    .signup-form {
+  
+      max-width: 60%;
+      padding: 10px;
+      /* Slightly narrower on smaller screens */
+    }
+  }

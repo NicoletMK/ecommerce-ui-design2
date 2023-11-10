@@ -1,51 +1,153 @@
+/* Main Navbar Styles */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-bottom: 10px;
-  background-color: #0C2340;
-  color: #F15A22;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  height: 55px;
+  background-color: rgb(35, 79, 106); /* Primary background color */
+  color: #fff;
+  box-shadow: rgb(33 35 38 / 10%) 0px 10px 10px -10px;
 }
 
+/* Branding */
 .navbar-left {
-  width: 20%;
-  font-size: 30px;
+  padding: 0 1rem; /* Adjust padding as necessary */
 }
 
-.link {
-  text-decoration: none; /* Remove underline */
-  color: inherit; /* Inherit the color from the parent element */
+.navbar-brand {
+  font-size: 1.5rem; /* Logo size */
+  color: white; /* Logo color */
+  text-decoration: none;
 }
 
+/* Search Bar */
 .navbar-center {
-  width: 60%;
-  text-align: center;
+  flex-grow: 1; /* Allow search bar to grow */
 }
 
-.navbar-center input {
-  width: 80%;
-  padding: 10px;
-  border: none;
-  border-radius: 20px;
-  background-color: white;
-  color: black;
-  text-align: center;
-}
-
-.navbar-right {
-  width: 20%;
+.search-bar {
+  position: relative;
   display: flex;
-  justify-content: space-around;
+  align-items: center;
 }
 
+.search-input {
+  width: 100%; /* Full width of parent */
+  padding: 0.5rem;
+  border-radius: 3px;
+  border: 1px solid #e1e1e1;
+  background: white;
+}
 
-/* Icon */
-.iconNavBar {
-  color: #F15A22;
+.search-button {
+  background: none;
+  border: none;
+  position: absolute;
+  right: 0%;
+  bottom: 0%;
+  color: rgb(243, 31, 31);
+  padding: 0.5rem;
   cursor: pointer;
+}
+
+/* Icon Navigation */
+.navbar-right {
+  display: flex;
+  gap: 10px; /* Space between icons */
+  align-items: center;
+  padding: 0 1rem; /* Adjust padding as necessary */
+}
+
+.navbar-icon {
+  color: white; /* Icon color */
+  font-size: 1.5rem; /* Icon size */
+  text-decoration: none;
+}
+
+.navbar-icon:hover {
+  color: #f15a22; /* Hover color */
+}
+
+@media (max-width: 991px) {
+  /* General navbar styles for mobile */
+  .navbar {
+    flex-direction: column;
+    align-items: center; /* Center alignment for all items */
+    padding: 10px 0; /* Consistent padding */
+  }
+
+  /* Brand section */
+  .navbar-left {
+    width: 100%; /* Full width */
+    display: flex;
+    justify-content: center; /* Center logo */
+    margin-bottom: 10px; /* Spacing below the logo */
+  }
+
+  /* Search section */
+  .navbar-center {
+    width: 100%; /* Full width */
+    order: -1; /* Move search bar to top on mobile */
+    margin-bottom: 10px; /* Spacing below the search bar */
+  }
+
+  .search-bar {
+    width: 90%; /* Giving some space on the sides */
+    margin: 0 auto; /* Centering the search bar */
+  }
+
+  .search-input {
+    width: 100%; /* Full width of its parent */
+    padding: 10px; /* Comfortable padding for typing */
+    /* Rounded corners for the input */
+    border: 2px solid #e1e1e1; /* Subtle border */
+  }
+
+  .search-button {
+    position: absolute;
+    right: -0.3%; 
+   
+    bottom: 0%;/* Align with the search bar's padding */
+    border: none;
+    background: #dc6f47; /* Brand color */
+    color: white;
+    padding: 11px; /* Comfortable touch area */
+     /* Rounded right side corners */
+    cursor: pointer;
+  }
+ .search-button:hover{
+  background: #e8602f;
+ }
+  /* Icons section */
+  .navbar-right {
+    width: 100%; /* Full width */
+    justify-content: space-around; /* Evenly space icons */
+    padding: 10px 0; /* Padding for touch area */
+  }
+
+  .iconNavBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto; /* Width auto to wrap content */
+    padding: 10px; /* Padding for touch area */
+  }
+
+  .navbar-right .navbar-icon {
+    font-size: 1.5rem; /* Icon size */
+    margin: 0 5px; /* Spacing between icons */
+  }
+}
+
+/* Ensure the icons are easily clickable */
+.navbar-icon {
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Additional adjustments for touch targets */
+.navbar-icon, .navbar-brand {
+  min-width: 44px; /* Minimum touch target size */
+  min-height: 44px; /* Minimum touch target size */
 }

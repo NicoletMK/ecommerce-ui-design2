@@ -18,6 +18,11 @@ import PrivacyPolicyScreen from './Screens/PrivacyPolicyScreen'
 import FAQsScreen from './Screens/FAQsScreen'
 import CartScreen from './Screens/CartScreen'
 import WishlistScreen from './Screens/WishlistScreen';
+import ForgotPassword from './Screens/ForgotPassword';
+import CheckoutScreen from './Screens/CheckoutScreen';
+import MyProfileScreen from './Screens/MyProfileScreen'
+import React from 'react';
+
 
 
 const AppStyle = {
@@ -34,13 +39,13 @@ function App() {
   return (
     <Router>
       <div style={AppStyle}>
-        <Navbar />
+        { /*<Navbar /> */}
         <div style={MainContentStyle}>
           <Routes>
             {/* Comment for testing */}
             <Route path="/TestScreen" element={<TestScreen />} />
 
-            <Route path="/" element={<MainScreen />} />
+            <Route path="/" element={<LoginScreen />} />
             <Route path="/MainScreen" element={<MainScreen />} />
             <Route path="/SignupScreen" element={<SignupScreen />} />
             <Route path="/LoginScreen" element={<LoginScreen />} />
@@ -49,8 +54,11 @@ function App() {
             <Route path="/ContactUsScreen" element={<ContactUsScreen />} />
             <Route path="/PrivacyPolicyScreen" element={<PrivacyPolicyScreen />} />
             <Route path="/FAQsScreen" element={<FAQsScreen />} />
-            <Route path="/CartScreen" element={<CartScreen />} />
+            <Route path="/CartScreen" element={<CartScreen cart={undefined} removeFromCart={undefined} />} />
             <Route path="/WishlistScreen" element={<WishlistScreen />} />
+            <Route path="/ForgotPassword" element={<ForgotPassword />} />
+            <Route path="/CheckoutScreen" element={<CheckoutScreen />} />
+            <Route path="/MyProfileScreen" element={<MyProfileScreen />} />
 
           </Routes>
         </div>
