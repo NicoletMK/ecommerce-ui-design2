@@ -1,244 +1,218 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React, { useState } from 'react';
 import './ScreenCss/Checkout.css';
-import NavBar from '../Components/NavigationBar';
-import dellLaptop from '../Images/dell laptop.png';
-import Earpod from '../Images/earpod.png';
-
+import logoImage from './ScreenCss/logoo.png'
 function CheckoutScreen() {
-    const [billingInfo, setBillingInfo] = useState({
-        firstName: '',
-        lastName: '',
-        billingAddress: '',
-        shippingAddress: '',
-        phoneNumber: '',
-        emailAddress: '',
+    /* For the Shipping tab */
+    const [shippingInfo, setShippingInfo] = useState({
+        fullName: '',
+        address: '',
+        city: '',
+        postalCode: '',
+        country: ''
     });
+    /* Items */
+    const orderItems = [
+        { id: 1, name: 'Item 1', price: 20.00, quantity: 2 },
+        { id: 2, name: 'Item 2', price: 15.00, quantity: 1 }
+    ];
 
-    const [items, setItems] = useState([
-        { id: 1, name: 'Dell Laptop', price:999.99, quantity: 2, image: dellLaptop},
-        { id: 2, name: 'Earpod', price: 99, quantity: 1, image: Earpod },
-
-    ]);
-
-    const [paymentMethod, setPaymentMethod] = useState('paypal');
-    const [cardInfo, setCardInfo] = useState({
-        cardName: '',
+    /* Payment Methods */
+    const [paymentMethod, setPaymentMethod] = useState('paypal'); // 'paypal' or 'creditCard'
+    const [creditCardInfo, setCreditCardInfo] = useState({
         cardNumber: '',
-        expirationDate: '',
-        cvv: '',
+        expiryDate: '',
+        cvv: ''
     });
-
-    const calculateTotal = () => {
-        return items.reduce((total, item) => total + item.price * item.quantity, 0);
+    const handleCreditCardInfoChange = (event) => {
+        const { name, value } = event.target;
+        setCreditCardInfo(prevState => ({ ...prevState, [name]: value }));
     };
 
-    const calculateShippingFee = (subtotal) => {
-        return subtotal > 199 ? 0 : 10;
-    };
+    /*If it is Std delivery or express*/
 
-    const handlePaymentMethodChange = (e) => {
-        setPaymentMethod(e.target.value);
-    };
+    const [deliveryOption, setDeliveryOption] = useState('standard'); // 'standard' or 'express'
 
-    const handlePlaceOrder = () => {
-        // Create a confirmation message
-        const confirmationMessage = `Confirm your order with a total of $${total}`;
+    /*Calculates total (w/o) delivery fee */
+    const orderSubtotal = orderItems.reduce((total, item) => total + (item.price * item.quantity), 0);
 
-        // Display the confirmation dialog
-        const isConfirmed = window.confirm(confirmationMessage);
-
-        if (isConfirmed) {
-            console.log('Order confirmed!');
-        } else {
-            console.log('Order canceled.');
+    const calculateDeliveryCost = () => {
+        if (deliveryOption === 'standard') {
+            return orderSubtotal > 200 ? 0 : 10;
+        } else if (deliveryOption === 'express') {
+            return orderSubtotal > 500 ? 0 : 25;
         }
-    }
+        return 0;
+    };
 
-    const subtotal = calculateTotal();
-    const shippingFee = calculateShippingFee(subtotal);
-    const total = (subtotal + shippingFee).toFixed(2);
+    // Calculate total price
+    const deliveryCost = calculateDeliveryCost();
+    const totalPrice = orderSubtotal + deliveryCost;
+    const [currentTab, setCurrentTab] = useState(1);
+    const handleTabClick = (tabNumber) => {
+        setCurrentTab(tabNumber);
+    };
+
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
+        setShippingInfo(prevState => ({ ...prevState, [name]: value }));
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        // Add order placement logic here
+    };
 
     return (
-        <div className='MainContainerForCheckoutScreen'>
-            <NavBar />
-    
-            <div>
-            <h1>TechnoTreasure</h1>
-            </div>
-           
-            <div className='ContainerForCheckoutScreen'>
-            
-            
-                <div className='CheckoutForm'>
-                    <div className='checkout-billing-info'>
-                        <h2>Billing Details</h2>
-                        <form>
-                            <div className='checkout-form-group'>
-                                <label className='required-label'>First Name </label>
-                                <input
-                                    type='text'
-                                    value={billingInfo.firstName}
-                                    onChange={(e) =>
-                                        setBillingInfo({ ...billingInfo, firstName: e.target.value })
-                                    }
-                                    required // Make it required
-                                />
-                            </div>
-                            <div className='checkout-form-group'>
-                                <label className='required-label'>Last Name </label>
-                                <input
-                                    type='text'
-                                    value={billingInfo.lastName}
-                                    onChange={(e) =>
-                                        setBillingInfo({ ...billingInfo, lastName: e.target.value })
-                                    }
-                                    required // Make it required
-                                />
-                            </div>
-                            <div className='checkout-form-group'>
-                                <label className='required-label'>Billing Address </label>
-                                <input
-                                    type='text'
-                                    value={billingInfo.billingAddress}
-                                    onChange={(e) =>
-                                        setBillingInfo({ ...billingInfo, billingAddress: e.target.value })
-                                    }
-                                    required // Make it required
-                                />
-                            </div>
-                            <div className='checkout-form-group'>
-                                <label className='required-label'>Shipping Address</label>
-                                <input
-                                    type='text'
-                                    value={billingInfo.shippingAddress}
-                                    onChange={(e) =>
-                                        setBillingInfo({ ...billingInfo, shippingAddress: e.target.value })
-                                    }
-                                    required // Make it required
-                                />
-                            </div>
-                            <div className='checkout-form-group'>
-                                <label className='required-label'>Phone Number</label>
-                                <input
-                                    type='text'
-                                    value={billingInfo.phoneNumber}
-                                    onChange={(e) =>
-                                        setBillingInfo({ ...billingInfo, phoneNumber: e.target.value })
-                                    }
-                                    required // Make it required
-                                />
-                            </div>
-                            <div className='checkout-form-group'>
-                                <label>Email Address</label>
-                                <input
-                                    type='text'
-                                    value={billingInfo.emailAddress}
-                                    onChange={(e) =>
-                                        setBillingInfo({ ...billingInfo, emailAddress: e.target.value })
-                                    }
-                                />
-                            </div>
-                        </form>
+        <div className="checkout-containers">
+            <div className="CheckoutLogo"><img src={logoImage}></img></div>
+            <div className="checkout-container">
+                <div className="checkout-content">
+                    <div className="checkout-tabs">
+                        <div className={`checkout-tab ${currentTab === 1 ? 'active' : ''}`} onClick={() => handleTabClick(1)}>Shipping</div>
+                        <div className={`checkout-tab ${currentTab === 2 ? 'active' : ''}`} onClick={() => handleTabClick(2)}>Delivery</div>
+                        <div className={`checkout-tab ${currentTab === 3 ? 'active' : ''}`} onClick={() => handleTabClick(3)}>Payment</div>
                     </div>
-                    <div className='checkout-order-summary'>
-                        <h2>Order Summary</h2>
-                        <ul className='checkout-ul'>
-                            {items.map((item) => (
-                                <li className='checkout-li' key={item.id}>
-                                    <div className='product-image'>
-                                        <img src={item.image} alt={item.name} /> <span>{item.name} x {item.quantity} </span>
-                                    </div>
-                                    <div className='product-details'>
-                                     ${item.price * item.quantity}
-                                    </div>
-                                </li>
-                            ))}
-                        </ul>
-                        <div className='checkout-totalprice'>
-                            <span>Subtotal:</span> ${subtotal}
-                        </div>
-                        <div className='checkout-separator'></div>
-                        <div className='checkout-shipping-fee'>
-                            <span>Shipping Fee:</span> {shippingFee === 0 ? 'Free' : `$${shippingFee}`}
-                        </div>
-                        <div className='checkout-separator'></div>
-                        <div className='checkout-total'>
-                            <span>Total:</span> ${total}
-                        </div>
-                        <div className='checkout-payment-methods'>
-                            <h3>Payment Methods</h3>
-                            <label>
-                                <input
-                                    type='radio'
-                                    name='paymentMethod'
-                                    value='paypal'
-                                    checked={paymentMethod === 'paypal'}
-                                    onChange={handlePaymentMethodChange}
-                                />
-                                PayPal
-                            </label>
-                            <label>
-                                <input
-                                    type='radio'
-                                    name='paymentMethod'
-                                    value='creditdebit'
-                                    checked={paymentMethod === 'creditdebit'}
-                                    onChange={handlePaymentMethodChange}
-                                />
-                                Credit/Debit Card
-                            </label>
-                            {paymentMethod === 'creditdebit' && (
-                                <div>
-                                    <h4>Enter Card Information</h4>
-                                    <div className='checkout-form-group'>
-                                        <label>Name on Card</label>
-                                        <input
-                                            type='text'
-                                            value={cardInfo.cardName}
-                                            onChange={(e) =>
-                                                setCardInfo({ ...cardInfo, cardName: e.target.value })
-                                            }
-                                        />
-                                    </div>
-                                    <div className='checkout-form-group'>
-                                        <label>Card Number</label>
-                                        <input
-                                            type='text'
-                                            value={cardInfo.cardNumber}
-                                            onChange={(e) =>
-                                                setCardInfo({ ...cardInfo, cardNumber: e.target.value })
-                                            }
-                                        />
-                                    </div>
-                                    <div className='checkout-form-group'>
-                                        <label>Expiration Date</label>
-                                        <input
-                                            type='text'
-                                            value={cardInfo.expirationDate}
-                                            onChange={(e) =>
-                                                setCardInfo({ ...cardInfo, expirationDate: e.target.value })
-                                            }
-                                        />
-                                    </div>
-                                    <div className='checkout-form-group'>
-                                        <label>CVV</label>
-                                        <input
-                                            type='text'
-                                            value={cardInfo.cvv}
-                                            onChange={(e) =>
-                                                setCardInfo({ ...cardInfo, cvv: e.target.value })
-                                            }
-                                        />
-                                    </div>
-                                </div>
-                            )}
-                        </div>
-                        <button className='PlaceOrderButton' onClick={handlePlaceOrder}>
-                            Place Order
-                        </button>
 
-                    </div>
+                    <form onSubmit={handleSubmit}>
+                        {currentTab === 1 && (
+                            <div className="checkout-tab-content">
+                                <h3>Shipping Information</h3>
+                                <input
+                                    type="text"
+                                    name="fullName"
+                                    placeholder="Full Name"
+                                    value={shippingInfo.fullName}
+                                    onChange={handleInputChange}
+                                />
+                                <input
+                                    type="text"
+                                    name="address"
+                                    placeholder="Address"
+                                    value={shippingInfo.address}
+                                    onChange={handleInputChange}
+                                />
+                                <input
+                                    type="text"
+                                    name="city"
+                                    placeholder="City"
+                                    value={shippingInfo.city}
+                                    onChange={handleInputChange}
+                                />
+                                <input
+                                    type="text"
+                                    name="postalCode"
+                                    placeholder="Postal Code"
+                                    value={shippingInfo.postalCode}
+                                    onChange={handleInputChange}
+                                />
+                                <input
+                                    type="text"
+                                    name="country"
+                                    placeholder="Country"
+                                    value={shippingInfo.country}
+                                    onChange={handleInputChange}
+                                />
+                            </div>
+                        )}
+                        {currentTab === 2 && (
+                            <div className="checkout-tab-content">
+                                <h3>Delivery Options</h3>
+                                <div className="radio-option">
+                                    <input
+                                        type="radio"
+                                        id="standard-delivery"
+                                        name="delivery"
+                                        value="standard"
+                                        checked={deliveryOption === 'standard'}
+                                        onChange={() => setDeliveryOption('standard')}
+                                    />
+                                    <label htmlFor="standard-delivery">
+                                        Standard Delivery - {orderSubtotal > 200 ? 'Free' : '$10'}
+                                    </label>
+                                </div>
+                                <div className="radio-option">
+                                    <input
+                                        type="radio"
+                                        id="express-delivery"
+                                        name="delivery"
+                                        value="express"
+                                        checked={deliveryOption === 'express'}
+                                        onChange={() => setDeliveryOption('express')}
+                                    />
+                                    <label htmlFor="express-delivery">
+                                        Express Delivery - {orderSubtotal > 500 ? 'Free' : '$25'}
+                                    </label>
+                                </div>
+                            </div>
+                        )}
+
+{currentTab === 3 && (
+    <div className="checkout-tab-content">
+        <h3>Payment Information</h3>
+        <div className="radio-option">
+            <input
+                type="radio"
+                id="paypal"
+                name="paymentMethod"
+                value="paypal"
+                checked={paymentMethod === 'paypal'}
+                onChange={() => setPaymentMethod('paypal')}
+            />
+            <label htmlFor="paypal">PayPal</label>
+        </div>
+        <div className="radio-option">
+            <input
+                type="radio"
+                id="creditCard"
+                name="paymentMethod"
+                value="creditCard"
+                checked={paymentMethod === 'creditCard'}
+                onChange={() => setPaymentMethod('creditCard')}
+            />
+            <label htmlFor="creditCard">Credit Card</label>
+        </div>
+        {paymentMethod === 'creditCard' && (
+            <div className="credit-card-info">
+                <input
+                    type="text"
+                    name="cardNumber"
+                    placeholder="Card Number"
+                    value={creditCardInfo.cardNumber}
+                    onChange={handleCreditCardInfoChange}
+                />
+                <input
+                    type="text"
+                    name="expiryDate"
+                    placeholder="Expiry Date (MM/YY)"
+                    value={creditCardInfo.expiryDate}
+                    onChange={handleCreditCardInfoChange}
+                />
+                <input
+                    type="text"
+                    name="cvv"
+                    placeholder="CVV"
+                    value={creditCardInfo.cvv}
+                    onChange={handleCreditCardInfoChange}
+                />
+                 <button type="submit" className="place-order-button">Place Order</button>
+            </div>
+            
+        )}
+    </div>
+)}
+
+                    </form>
+                </div>
+                <div className="order-summary">
+                    <h3>Order Summary</h3>
+                    <ul>
+                        {orderItems.map(item => (
+                            <li key={item.id}>
+                                {item.name} - {item.quantity} x ${item.price.toFixed(2)}
+                            </li>
+                        ))}
+                    </ul>
+                    <p>Total: ${totalPrice.toFixed(2)}</p>
                 </div>
             </div>
         </div>
