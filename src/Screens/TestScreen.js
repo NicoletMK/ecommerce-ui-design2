@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import ProductCard from '../Components/ProductCard.js';
 import {Link} from "react-router-dom";
+import NavBar from '../Components/NavigationBar';
 
 function TestScreen() {
     // Sample product data (replace this with your actual data)
@@ -51,6 +52,7 @@ function TestScreen() {
 
     return (
         <div className='TestScreenContainer'>
+            <NavBar />
             <div className='TitleContainer'>
                 <h1> Test Sample Main Menu Screen </h1>
             </div>

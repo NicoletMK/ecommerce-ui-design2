@@ -1,114 +1,88 @@
-/* EditProfile.css */
-.MainContainerForMyProfileScreen {
-    text-align: left;
-  }
-  
-  .WelcomeSection {
-    text-align: center;
-  }
-  
-  .ContentContainer {
-    display: flex;
-    justify-content: center;
-    gap: 20px; 
-  }
-  
-  .ManageAccountSection {
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    padding: 20px;
-    border-radius: 5px;
-    width: 200px;
-    height: 220px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    margin: 10px;
-  }
+/* MyProfile.css */
 
-  .MyOrderDetailsSection {
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    padding: 20px;
-    border-radius: 5px;
-    width: 200px;
-    height: 228px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    margin: 10px;
-  }
-  
-  .MyProfileSection {
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    padding: 20px;
-    border-radius: 5px;
-    width: 600px;
-    height: 500px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    margin: 10px;
-  }
-  
-  .ManageAccountSection h2,
-  .MyProfileSection h2 {
-    text-align: center;
-    margin-bottom: 10px;
-  }
-  
-  .form-group {
-    margin-bottom: 10px;
-  }
-  
-  .form-group label {
-    font-weight: bold;
-    text-align: left;
-  }
-  
-  .form-group input {
-    width: 100%;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-  }
-  
-  button {
-    background-color: rgb(241, 90, 34);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-    margin-left: 10px;
-    width: 150px;
-    height: 40px;
-    align-items: center;
-  }
-  
-  .CenteredButtons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0;
-    list-style: none;
-  }
-  
-  .CenteredButtons ul {
-    margin: 10px 0;
-    text-align: center;
-  }
-  
-  /* Add media queries for responsive design */
-  @media (max-width: 900px) {
-    .LeftSection {
-      flex-direction: column;
-    }
-  
-    .ManageAccountSection,
-    .MyProfileSection
-    .MyOrderDetailsSection {
-      width: 80%;
-    }
-  
-    .MyProfileSection {
-      padding: 20px;
-    }
-  }
-  
+.MainContainerForMyProfileScreen {
+  font-family: 'Arial', sans-serif;
+}
+
+.MyProfilebox {
+
+  padding: 15px;
+  text-align: center;
+}
+
+.box-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.Detailsbox,
+.Addressbox {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  width: 45%;
+  box-shadow: 2px 2px 5px 5px rgb(167, 165, 165);
+  border-radius: 15px; /* Adjust the value based on your preference */
+}
+
+.Detailsbox h3,
+.Addressbox h3 {
+  color: #2f3232;
+}
+
+.field {
+  margin-bottom: 15px;
+}
+
+.field label {
+  font-weight: bold;
+}
+
+.field input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  box-sizing: border-box;
+}
+
+.edit-button-container {
+  margin-top: 15px;
+}
+
+.edit-button-container button {
+  background-color:rgb(35, 79, 106);
+  color: #fff;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.edit-button-container button:hover {
+  background-color: rgb(35, 79, 106);;
+}
+
+.modal-buttons {
+  margin-top: 20px; /* Adjust the margin as needed */
+}
+
+.modal-buttons button {
+  padding: 10px 20px;
+  margin-right: 10px;
+  cursor: pointer;
+  border: none;
+  font-size: 16px;
+}
+
+.modal-buttons button.ok-button {
+  background-color: rgb(35, 79, 106); /* Green color for the OK button */
+  color: white;
+}
+
+.modal-buttons button.cancel-button {
+  background-color: rgb(35, 79, 106); /* Red color for the Cancel button */
+  color: white;
+}
+
+

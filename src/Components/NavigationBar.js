@@ -25,8 +25,12 @@ function NavigationBar() {
                 <Link to={'/CartScreen'} className='navbar-icon'>
                     <FontAwesomeIcon icon={faCartShopping} />
                 </Link>
-                <Link to={'/MyProfileScreen'} className='navbar-icon'>
-                    <FontAwesomeIcon icon={faUser} />
+                <Link
+                    to={'/MyProfileScreen'}
+                    state= {{ userFirstName: "Musquan", userLastName: "Karovalia", userEmail: "MusquanKarovalia@gmail.com", userShippingAddress: "UTSA - Shipping", userBillingAddress: "UTSA - Billing", testid: "654b15bceb65eab62c7897fe"}}
+                    style={{ textDecoration: 'none', color: '#F15A22'}}
+                >
+                    <FontAwesomeIcon icon={ faUser } size='2x'  />
                 </Link>
             </div>
         </div>
