@@ -1,3 +1,184 @@
 .MainContainerForProductDetailsScreen{
     text-align: center;
 }
+/* ProductDetails.css */
+
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #333;
+  }
+  
+  
+  /* Product Detail Container */
+  .product-detail-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 20px;
+  }
+  
+  /* Product Detail Wrapper */
+  .product-detail {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  /* Image Container Styles */
+  .image-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .image-container img {
+    flex: 1;
+    max-width: 400px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  
+  .image-container img:hover {
+    transform: scale(1.1);
+  }
+  
+  .selected-image {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .thumbnail-image-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .thumbnail-images img {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+  
+  /* Product Info Styles */
+  .product-info {
+    flex: 1;
+    max-width: 400px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  /* Ratings Styles */
+  .ratings {
+    display: flex;
+    align-items: center;
+  }
+  
+  .star-icons {
+    color: #ffcc00;
+  }
+  
+  /* Quantity Select Styles */
+  .quantity-select {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .quantity-select label {
+    margin-right: 10px;
+  }
+  
+  .quantity-select select {
+    margin-right: 10px;
+    padding: 5px;
+  }
+  
+  /* Add to Cart Button Styles */
+  .add-to-cart {
+    background-color: blue;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .add-to-cart:hover {
+    background-color: orangered;
+  }
+  /* Add this to your existing CSS file or update the existing styles */
+.view-cart {
+    color: orangered;
+    padding: 10px 26px;
+    border: none;
+    border-radius: 1px;
+    cursor: pointer;
+    margin-top: 10px; /* Add margin-top to create some space between the buttons */
+  }
+  .view-cart-button {
+    background-color:orangered;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .view-cart-button:hover {
+    background-color: blue;
+  }
+  .details-container {
+    width: 100%;
+    margin-top: 20px;
+  }
+  /* Reviews Container Styles */
+  .reviews-container {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  /* Section Title Styles */
+  .section-title {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  /* Review Styles */
+  .review {
+    margin-bottom: 10px;
+  }
+  
+  .review-user,
+  .review-comment,
+  .review-rating {
+    margin: 5px 0;
+    color: #333;
+  }
+  
+  /* Review Form Styles */
+  .review-form {
+    margin-top: 20px;
+  }
+  
+  /* ... (rest of the CSS remains the same) */
+  
