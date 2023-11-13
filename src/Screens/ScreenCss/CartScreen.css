@@ -1,3 +1,96 @@
-.MainContainerForCartScreen{
-    text-align: center;
+.MainContainerForContactUsScreen{
+  text-align: center;
+}
+
+.CartBox {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  box-shadow: 2px 2px 5px 5px rgb(167, 165, 165);
+  border-radius: 15px;
+  width: auto; /* Adjust the width of the cart box */
+  margin: 20px; /* Add margin for spacing */
+}
+
+.ProductsAndOrderSummaryContainer {
+  display: flex;
+}
+
+.ProductsInCartContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  flex: 2; /* Take up 2/3 of the available space */
+}
+
+.OrderSummaryContainer {
+  position: fixed; /* Set the position to fixed */
+  right: 0; /* Position the element to the left */
+  margin-top: 20px; /* Position the element to the top */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  box-shadow: 2px 2px 5px 5px rgb(167, 165, 165);
+  border-radius: 15px;
+  height: auto;
+  width: auto; /* Adjust the width of the order summary */
+  margin-right: 10px; 
+  display: flex;
+  flex-direction: column;
+  align-items: right;
+ /* Add margin for spascing */
+}
+
+.ProductCard {
+  display: flex;
+  border: 1px solid #ccc;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.ProductCard img {
+  width: 300px;
+  height: 200px;
+  margin-right: 10px; /* Add margin to the right of the image */
+}
+
+.ProductDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.ProductCard ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0; /* Remove default margin */
+}
+
+.ProductCard li {
+  margin-bottom: 5px; /* Add margin to each list item for spacing */
+}
+
+.RemoveItemButton {
+  background-color: orangered;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.CheckoutButton {
+  background-color: darkblue;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin-top: 10px;
+  cursor: pointer;
 }
