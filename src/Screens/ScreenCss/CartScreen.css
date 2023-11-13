@@ -8,8 +8,8 @@
   padding: 20px;
   box-shadow: 2px 2px 5px 5px rgb(167, 165, 165);
   border-radius: 15px;
-  width: auto; /* Adjust the width of the cart box */
-  margin: 20px; /* Add margin for spacing */
+  width: 80%;
+  margin: 20px; 
 }
 
 .ProductsAndOrderSummaryContainer {
@@ -20,25 +20,24 @@
   display: flex;
   flex-direction: column;
   align-items: left;
-  flex: 2; /* Take up 2/3 of the available space */
+  flex: 2; 
 }
 
 .OrderSummaryContainer {
-  position: fixed; /* Set the position to fixed */
-  right: 0; /* Position the element to the left */
-  margin-top: 20px; /* Position the element to the top */
+  position: fixed;
+  right: 0; 
+  margin-top: 20px; 
   background-color: #fff;
   border: 1px solid #ccc;
   padding: 20px;
   box-shadow: 2px 2px 5px 5px rgb(167, 165, 165);
   border-radius: 15px;
   height: auto;
-  width: auto; /* Adjust the width of the order summary */
+  width: auto;
   margin-right: 10px; 
   display: flex;
   flex-direction: column;
   align-items: right;
- /* Add margin for spascing */
 }
 
 .ProductCard {
@@ -52,7 +51,7 @@
 .ProductCard img {
   width: 300px;
   height: 200px;
-  margin-right: 10px; /* Add margin to the right of the image */
+  margin-right: 10px;
 }
 
 .ProductDetails {
@@ -63,15 +62,15 @@
 .ProductCard ul {
   list-style-type: none;
   padding: 0;
-  margin: 0; /* Remove default margin */
+  margin: 0; 
 }
 
 .ProductCard li {
-  margin-bottom: 5px; /* Add margin to each list item for spacing */
+  margin-bottom: 5px; 
 }
 
 .RemoveItemButton {
-  background-color: orangered;
+  background-color: rgb(35, 79, 106);
   color: #fff;
   border: none;
   padding: 8px 16px;
@@ -83,7 +82,7 @@
   cursor: pointer;
 }
 .CheckoutButton {
-  background-color: darkblue;
+  background-color: rgb(35, 79, 106);;
   color: #fff;
   border: none;
   padding: 8px 16px;
