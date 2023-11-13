@@ -1,26 +1,160 @@
-import React from "react";
+import React, { useEffeinfct, useReducer, useState } from 'react';
+import Footer from '../Components/Footer.js';
+import './ScreenCss/MainScreen.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart, faTrophy } from '@fortawesome/free-solid-svg-icons';
+import ProductCard from '../Components/ProductCard.js';
 import { Link } from "react-router-dom";
-import Footer from "../Components/Footer";
-import './ScreenCss/MainScreen.css'
+import NavBar from '../Components/NavigationBar';
+import bgImg from '../Images/banners.png'
+import { useLocation } from "react-router-dom";
 
-function MainScreen() {
+import { SliderData } from '../Components/SliderData.js';
+import ImageSlider from '../Components/ImageSlider.js';
+
+import { ProductData } from "../Components/ProductData.js"
+
+function MainScreen(props) {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [sortOption, setSortOption] = useState('none');
+
+  const itemsPerPage = 12;
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+
+  const sortProducts = (products, option) => {
+    if (option === 'price') {
+      return products.slice().sort((a, b) => a.productPrice - b.productPrice);
+    }
+    else if (option === 'opp-price') {
+      return products.slice().sort((b, a) => a.productPrice - b.productPrice);
+    }
+    else if (option === 'rating') {
+      return products.slice().sort((b, a) => a.productRating - b.productRating);
+    }
+    else if (option === 'none') {
+      return products;
+    }
+    return products;
+  };
+
+
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
+  const handleCategoryFilter = (category) => {
+    setSelectedCategory(category);
+    setSearchQuery(''); // Reset search query
+    setSortOption('none'); // Reset sort option
+    setCurrentPage(1);
+  };
+
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+    setCurrentPage(1);
+  };
+
+  const filteredProducts = selectedCategory
+    ? ProductData.filter(
+      (product) =>
+        product.productCategory === selectedCategory &&
+        product.name.toLowerCase().includes(searchQuery.toLowerCase())
+    )
+    : ProductData.filter((product) =>
+      product.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
+  const sortedProducts = sortProducts(filteredProducts, sortOption);
+  const currentProducts = sortedProducts.slice(startIndex, endIndex);
+
   return (
-    <div className="MainContainerForMainMenu">
-      <div className="ContainerForInstruction">
-        <h1> Please put all the things for the main menu here in this page </h1>
+    <div className='ForAllTheInformationInTestScreen'>
+      <NavBar searchQuery={searchQuery} handleSearch={handleSearch} />
+
+      {!searchQuery &&
+        <div className="HeroImage">
+          <img src={bgImg} alt="Hero" />
+        </div>
+      }
+
+      <div className='category-container'>
+
+        <div className='category-card' onClick={() => handleCategoryFilter(null)}>All Products</div>
+        <div className='category-card' onClick={() => handleCategoryFilter('MobileAndCellPhones')}>Mobile and Cell Phones</div>
+        <div className='category-card' onClick={() => handleCategoryFilter('ComputerAndLaptop')}>Computers and Laptops</div>
+        <div className='category-card' onClick={() => handleCategoryFilter('TVsAndScreen')}>TVs and Screens</div>
+        <div className='category-card' onClick={() => handleCategoryFilter('HomeAppliances')}>Home Appliances</div>
+        <div className='category-card' onClick={() => handleCategoryFilter('FitnessAndHealth')}>Fitness and Health</div>
+        <div className='category-card' onClick={() => handleCategoryFilter('VideoGames')}>Video Games</div>
+        <div className='category-card' onClick={() => handleCategoryFilter('CamerasCamcorders&Drones')}>Cameras, Camcorders & Drones</div>
+
       </div>
-      <div className="ContainerForTestingLinks">
-        <ul className="LinksForTesting">
-          <li> <Link to='/ProductDetailScreen'> Product Details </Link> </li>
-          <li> <Link to='/EditProfileScreen'> Edit Profile </Link> </li>
-          <li> <Link to='/LoginScreen'> Login </Link> </li>
-          <li> <Link to='/SignupScreen'> Sign Up </Link> </li>
-          <li> <Link to='/ContactUsScreen'> Contact Us </Link> </li>
-          <li> <Link to='/PrivacyPolicyScreen'> Privacy Policy </Link> </li>
-          <li> <Link to='/FAQsScreen'> FAQs </Link> </li>
-          <li> <Link to='/TestScreen'> TestScreen </Link> </li>
-        </ul>
+      <div className='TestScreenContainer'>
+
+        <div className='TitleContainer'>
+          <h1 className='TitleContainerH1Only'> Browse All Products</h1>
+        </div>
+
+        <div className='ConatinerForSearchBoxAndFilter'>
+
+          <div className='SortBy'>
+            <label>Sort By: </label>
+            <select onChange={(e) => setSortOption(e.target.value)}>
+              <option value='none'>None</option>
+              <option value='price'>Low Price - High Price</option>
+              <option value='opp-price'>High Price - Low Price</option>
+              <option value='rating'>Rating</option>
+            </select>
+          </div>
+        </div>
+
+        <div className='SampleProductsContainer'>
+          {currentProducts.map((product, index) => (
+            <div key={index} className='ProductCard'>
+              <Link to={'/ProductDetailScreen'}
+                state={{
+                  productName:product.name,
+                  productPrice: product.productPrice,
+                  productId: product.productId,
+                  productImagePath: product.productImage,
+                  productImagePath1: product.productImageAdd1,
+                  productImagePath2: product.productImageAdd2,
+                  productImagePath3: product.productImageAdd3,
+                  productImagePath4: product.productImageAdd4,
+                  productDescription: product.productDetail,
+                  productCategory: product.productCategory
+                }}
+                style={{ textDecoration: 'none', color: '#0C2340' }}
+              >
+                <ProductCard
+                  productName={product.name}
+                  productPrice={product.productPrice}
+                  productRating={product.productRating}
+                  productId={product.productId}
+                  productImagePath={product.productImage}
+                  productImagePath1={product.productImageAdd1}
+                  productImagePath2={product.productImageAdd2}
+                  productImagePath3={product.productImageAdd3}
+                  productImagePath4={product.productImageAdd4}
+                  productDescription={product.productDetail}
+                  productCategory={product.productCategory}
+                />
+              </Link>
+            </div>
+          ))}
+        </div>
+
+        <div className='Pagination'>
+          {Array.from({ length: Math.ceil(filteredProducts.length / itemsPerPage) }, (_, index) => (
+            <button className='ButtonForPagination' key={index} onClick={() => handlePageChange(index + 1)}>{index + 1}</button>
+          ))}
+        </div>
       </div>
+
     </div>
   );
 }

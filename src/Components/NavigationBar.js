@@ -4,7 +4,7 @@ import './ComponentCss/NavigationBar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faCartShopping, faUser, faSearch } from '@fortawesome/free-solid-svg-icons';
 
-function NavigationBar() {
+function NavigationBar({ searchQuery, handleSearch }) {
     return (
         <div className="navbar">
             <div className="navbar-left">
@@ -12,7 +12,13 @@ function NavigationBar() {
             </div>
             <div className="navbar-center">
                 <div className="search-bar">
-                    <input type="text" placeholder="Looking for a Product?" className="search-input" />
+                    <input
+                        type="text"
+                        placeholder="Looking for a Product?"
+                        className="search-input"
+                        value={searchQuery}
+                        onChange={(e) => handleSearch(e.target.value)}
+                    />
                     <button className="search-button">
                         <FontAwesomeIcon icon={faSearch} />
                     </button>
@@ -27,10 +33,10 @@ function NavigationBar() {
                 </Link>
                 <Link
                     to={'/MyProfileScreen'}
-                    state= {{ userFirstName: "Musquan", userLastName: "Karovalia", userEmail: "MusquanKarovalia@gmail.com", userShippingAddress: "UTSA - Shipping", userBillingAddress: "UTSA - Billing", testid: "654b15bceb65eab62c7897fe"}}
-                    style={{ textDecoration: 'none', color: '#F15A22'}}
+                    state={{ userFirstName: "Musquan", userLastName: "Karovalia", userEmail: "MusquanKarovalia@gmail.com", userShippingAddress: "UTSA - Shipping", userBillingAddress: "UTSA - Billing", testid: "654b15bceb65eab62c7897fe" }}
+                    style={{ textDecoration: 'none', color: '#F15A22' }}
                 >
-                    <FontAwesomeIcon icon={ faUser } size='2x'  />
+                    <FontAwesomeIcon icon={faUser} size='2x' />
                 </Link>
             </div>
         </div>

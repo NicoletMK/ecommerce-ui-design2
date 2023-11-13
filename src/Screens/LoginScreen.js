@@ -13,16 +13,28 @@ function LoginScreen() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get("http://localhost:3001/users/")
-      .then(res => setUsers(res.data))
-      .catch(err => console.error(err));
+    function getUsers() {
+      axios.get("http://localhost:3001/users/").then((res) => {
+        setUsers(res.data);
+      });
+    }
+    getUsers();
   }, []);
+
+  useEffect(() => {
+    console.log(users);
+  }, [users]);
 
   const handleLogin = (event) => {
     event.preventDefault();
     const userFound = users.find(user => user.email === email && user.password === password);
     if (userFound) {
-      navigate("/MainScreen", { state: { user: userFound } });
+      console.log("Login successful");
+      console.log(userFound);
+      console.log(userFound._id);
+      localStorage.setItem('activeUser', userFound._id);
+
+      navigate("/MainScreen");
     } else {
       setError({ ...errors, form: "Invalid email or password !!" });
     }
