@@ -7,25 +7,23 @@
   flex-direction: column;
   overflow: hidden;
   padding: 10px;
-  /* Added padding for spacing */
 }
+
+.productCardContainer:hover {
+  transform: scale(1.03); 
+  box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.3); 
+}
+
 
 .imageContainer {
-  width: 100%;
-  /* Adjusted to 100% for consistent sizing */
   display: flex;
   justify-content: center;
-  /* Center the image */
-  overflow: hidden;
   height: 10rem;
 }
-
 .imagePlaceholder {
-  object-fit: cover;
-  height: 150px;
-  /* Fixed height */
-  width: 180px;
-  /* Fixed width */
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* This will ensure the entire image is visible */
 }
 
 /* Detail container */

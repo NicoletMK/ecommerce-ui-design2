@@ -3,6 +3,7 @@ import 'font-awesome/css/font-awesome.min.css';
 import './App.css';
 
 import Navbar from './Components/NavigationBar'
+import NavBarSec from './Components/NavBar2'
 import Footer from './Components/Footer'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 

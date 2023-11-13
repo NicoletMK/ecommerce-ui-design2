@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import NavBar from '../Components/NavigationBar';
+import NavBar from '../Components/NavBar2';
 import './ScreenCss/CartScreen.css';
 import Sony1 from '../Images/Sony1.jpeg';
 import SonyV from '../Images/SonyVloggerKit1.jpeg';

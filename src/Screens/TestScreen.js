@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import ProductCard from '../Components/ProductCard.js';
 import {Link} from "react-router-dom";
-import NavBar from '../Components/NavigationBar';
+import NavBar from '../Components/NavBar2.js';
 
 function TestScreen() {
     // Sample product data (replace this with your actual data)

@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
-import NavBar from '../Components/NavigationBar';
+import NavBar from '../Components/NavBar2';
 import CartScreen from './CartScreen';
 import './ScreenCss/ProductDetails.css'; 
 import image1 from '../Images/Sony1.jpeg';

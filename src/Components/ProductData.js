@@ -26,14 +26,14 @@ import WashingMachine5 from '../Images/Products/WashingMachine/WashingMachine5.j
 
 /* Nicole Products */
 
-import HP1 from '../Images/Products/HPChromeBook/HP1.jpeg';
+import HP1 from '../Images/Products/HPChromeBook/HP1.png';
 import HP2 from '../Images/Products/HPChromeBook/HP2.jpeg';
 import HP3 from '../Images/Products/HPChromeBook/HP3.jpeg';
 import HP4 from '../Images/Products/HPChromeBook/HP4.jpeg';
 import HP5 from '../Images/Products/HPChromeBook/HP5.jpeg';
 
 
-import Logi1 from '../Images/Products/LogitechMouse/Logi1.jpeg';
+import Logi1 from '../Images/Products/LogitechMouse/Logi1.png';
 import Logi2 from '../Images/Products/LogitechMouse/Logi1.jpeg';
 import Logi3 from '../Images/Products/LogitechMouse/Logi1.jpeg';
 import Logi4 from '../Images/Products/LogitechMouse/Logi1.jpeg';
@@ -155,8 +155,8 @@ export const ProductData = [
     {   
         name: "Macbook 2015", 
         productId: "1", 
-        productImage:MacbookImage1, 
-        productImageAdd1:MacbookImage2, 
+        productImage:MacbookImage2, 
+        productImageAdd1:MacbookImage1, 
         productImageAdd2:MacbookImage3, 
         productImageAdd3:MacbookImage4, 
         productImageAdd4:MacbookImage5, 
@@ -326,8 +326,8 @@ export const ProductData = [
     {   
         name: "Canon Mirrorless Camera", 
         productId: "14", 
-        productImage:Canon1, 
-        productImageAdd1:Canon2, 
+        productImage:Canon2, 
+        productImageAdd1:Canon1, 
         productImageAdd2:Canon3, 
         productImageAdd3:Canon4, 
         productImageAdd4:Canon5, 

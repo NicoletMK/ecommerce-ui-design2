@@ -56,7 +56,7 @@ function ProductCard(props) {
 
         <div className="productCardContainer">
             <div className='imageContainer'>
-                <img className='imagePlaceholder' src={props.productImagePath} alt="Error!" width="100%" />
+                <img className='imagePlaceholder' src={props.productImagePath} alt="Error!"  />
             </div>
             <div className='detailContainer'>
                 <div className='titleContainer'>
@@ -77,7 +77,7 @@ function ProductCard(props) {
                             style={{ textDecoration: 'none', color: '#0C2340' }}
                             onClick={(e) => WishlistIconClicked(props)}
                         >
-                            <FontAwesomeIcon icon={faHeart} size="2x" />
+                            <FontAwesomeIcon icon={faHeart} size="1x" />
                         </Link>
                     </span>
                     <span className='icon'>
@@ -86,7 +86,7 @@ function ProductCard(props) {
                             style={{ textDecoration: 'none', color: '#0C2340' }}
                             onClick={(e) => CartIconClicked(props)}
                         >
-                            <FontAwesomeIcon icon={faCartShopping} size="2x" />
+                            <FontAwesomeIcon icon={faCartShopping} size="1x" />
                         </Link>
                     </span>
                 </div>
