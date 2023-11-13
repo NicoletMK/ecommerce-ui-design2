@@ -96,132 +96,147 @@ function MyProfileScreen(props) {
     }));
   };
 
-  const handlePersonalSave = (e) => {
-    e.preventDefault(); // Prevent the default form submission behavior
+  const handleSave = (e) => {
 
-    if (!formData.firstname){
-      setPersonalErrorField("firstname");
-      setPersonalError("Please fill in your First Name");
-      return;
-    }
+    e.preventDefault();
 
-    if (!formData.lastname){
-      setPersonalErrorField("lastname");
-      setPersonalError("Please fill in your Last Name");
-      return;
-    }
+    if(personalEditMode){
+      if (!formData.firstname){
+        setPersonalErrorField("firstname");
+        setPersonalError("Please fill in your First Name");
+        return;
+      }
 
-    if (!formData.email){
-      setPersonalErrorField("email");
-      setPersonalError("Please fill in your email");
-      return;
-    }
+      if (!formData.lastname){
+        setPersonalErrorField("lastname");
+        setPersonalError("Please fill in your Last Name");
+        return;
+      }
 
-    if (!formData.phonenumber){
-      setPersonalErrorField("phonenumber");  
-      setPersonalError("Please fill in your Phone Number");
-      return;
-    }
+      if (!formData.email){
+        setPersonalErrorField("email");
+        setPersonalError("Please fill in your email");
+        return;
+      }
 
-    // Validate first name (should not contain digits)
-    if (/\d/.test(formData.firstname)) {
-      setPersonalErrorField("firstname")
-      setPersonalError("First name should not contain digits");
-      return;
-    }
+      if (!formData.phonenumber){
+        setPersonalErrorField("phonenumber");  
+        setPersonalError("Please fill in your Phone Number");
+        return;
+      }
 
-    // Validate last name (should not contain digits)
-    if (/\d/.test(formData.lastname)) {
-      setPersonalErrorField("lastname")
-      setPersonalError("Last name should not contain digits");
-      return;
-    }
+      // Validate first name (should not contain digits)
+      if (/\d/.test(formData.firstname)) {
+        setPersonalErrorField("firstname")
+        setPersonalError("First name should not contain digits");
+        return;
+      }
 
-    // Validate email
-    const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
-    if (!emailRegex.test(formData.email)) {
-      setPersonalErrorField("email")
-      setPersonalError("Invalid email format");
-      return;
-    }
+      // Validate last name (should not contain digits)
+      if (/\d/.test(formData.lastname)) {
+        setPersonalErrorField("lastname")
+        setPersonalError("Last name should not contain digits");
+        return;
+      }
 
-    // Validate phone
-    const phoneRegex = /^\d{3}-\d{3}-\d{4}$/;
-    if (!phoneRegex.test(formData.phonenumber)) {
-      setPersonalErrorField("phonenumber")
-      setPersonalError("Invalid phone format. Use ###-###-####");
-      return;
-    }
+      // Validate email
+      const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+      if (!emailRegex.test(formData.email)) {
+        setPersonalErrorField("email")
+        setPersonalError("Invalid email format");
+        return;
+      }
 
-    // If no errors, reset errorField
-    setPersonalErrorField("");
+      // Validate phone
+      const phoneRegex = /^\d{3}-\d{3}-\d{4}$/;
+      if (!phoneRegex.test(formData.phonenumber)) {
+        setPersonalErrorField("phonenumber")
+        setPersonalError("Invalid phone format. Use ###-###-####");
+        return;
+      }
 
-    // Prepare the data for saving
-    const userDataToUpdate = {
-      firstname: formData.firstname,
-      lastname: formData.lastname,
-      email: formData.email,
-      phonenumber: formData.phonenumber,
-      billingaddress: userTest.billingaddress,
-      shippingaddress: userTest.shippingaddress,
-      password: userTest.password
-    };
-
-          // Make an API request to update the user's data
-      axios
-        .post("http://localhost:3001/users/update/654b15bceb65eab62c7897fe", userDataToUpdate)
-        .then((res) => {
-          // Handle success - e.g., show a success message
-          console.log("User updated!");
-          alert("Changes saved successfully!");
-        })
-        .catch((err) => {
-          // Handle errors - e.g., show an error message
-          console.error("Error: " + err);
-          setError("An error occurred while updating the profile. Please try again.");
-        });
-    setPersonalEditMode(false);
-  };
-
-  const handleAddressesSave = (e) => {
-   // Validate the form data before saving (optional)
-    if (!formData.shippingaddress){ 
-      setAddressesErrorField("shippingaddress"); 
-      setAddressesError("Please fill in the Shipping Address");
-      return;
-    }
-
-    if (!formData.billingaddress){ 
-      setAddressesErrorField("billingaddress"); 
-      setAddressesError("Please fill in the Billing Address");
-      return;
-    }
+      // If no errors, reset errorField
+      setPersonalErrorField("");
 
       // Prepare the data for saving
-    const userDataToUpdate = {
-      firstname: userTest.firstname,
-      lastname: userTest.lastname,
-      email: userTest.email,
-      phonenumber: userTest.phonenumber,
-      billingaddress: formData.billingaddress,
-      shippingaddress: formData.shippingaddress,
-      password: userTest.password
-    };
+      const userDataToUpdate = {
+        firstname: formData.firstname,
+        lastname: formData.lastname,
+        email: formData.email,
+        phonenumber: formData.phonenumber,
+        billingaddress: userTest.billingaddress,
+        shippingaddress: userTest.shippingaddress,
+        password: userTest.password
+      };
 
-          // Make an API request to update the user's data
-      axios
-        .post("http://localhost:3001/users/update/654b15bceb65eab62c7897fe", userDataToUpdate)
-        .then((res) => {
-          // Handle success - e.g., show a success message
-          console.log("User updated!");
-          alert("Changes saved successfully!");
-        })
-        .catch((err) => {
-          // Handle errors - e.g., show an error message
-          console.error("Error: " + err);
-          setError("An error occurred while updating the profile. Please try again.");
-        });
-    setAddressesEditMode(false);
+            // Make an API request to update the user's data
+        axios
+          .post("http://localhost:3001/users/update/654b15bceb65eab62c7897fe", userDataToUpdate)
+          .then((res) => {
+            // Handle success - e.g., show a success message
+            console.log("User updated!");
+            alert("Changes saved successfully!");
+            // Update userTest state with the latest data
+            setUserTest((prevUserTest) => ({
+              ...prevUserTest,
+              firstname: formData.firstname,
+              lastname: formData.lastname,
+              email: formData.email,
+              phonenumber: formData.phonenumber,
+        }));
+          })
+          .catch((err) => {
+            // Handle errors - e.g., show an error message
+            console.error("Error: " + err);
+            setError("An error occurred while updating the profile. Please try again.");
+          });
+      setPersonalEditMode(false);
+    } else if (addressesEditMode) {
+      // Validate the form data before saving (optional)
+      if (!formData.shippingaddress){ 
+        setAddressesErrorField("shippingaddress"); 
+        setAddressesError("Please fill in the Shipping Address");
+        return;
+      }
+
+      if (!formData.billingaddress){ 
+        setAddressesErrorField("billingaddress"); 
+        setAddressesError("Please fill in the Billing Address");
+        return;
+      }
+
+        // Prepare the data for saving
+      const userDataToUpdate = {
+        firstname: userTest.firstname,
+        lastname: userTest.lastname,
+        email: userTest.email,
+        phonenumber: userTest.phonenumber,
+        billingaddress: formData.billingaddress,
+        shippingaddress: formData.shippingaddress,
+        password: userTest.password
+      };
+
+            // Make an API request to update the user's data
+        axios
+          .post("http://localhost:3001/users/update/654b15bceb65eab62c7897fe", userDataToUpdate)
+          .then((res) => {
+            // Handle success - e.g., show a success message
+            console.log("User updated!");
+            alert("Changes saved successfully!");
+            // Update userTest state with the latest data
+            setUserTest((prevUserTest) => ({
+              ...prevUserTest,
+              billingaddress: formData.billingaddress,
+              shippingaddress: formData.shippingaddress,
+        }));
+          })
+          .catch((err) => {
+            // Handle errors - e.g., show an error message
+            console.error("Error: " + err);
+            setError("An error occurred while updating the profile. Please try again.");
+          });
+      setAddressesEditMode(false);
+    };
   };
 
   const handleCancel = () => {
@@ -229,42 +244,42 @@ function MyProfileScreen(props) {
     setAddressesEditMode(false);
   };
 
-    const handlePasswordSave = () => {
-      // Check the entered password against the user's password
-      if (password === userTest.password) {
-        setPassword("");
-        setPasswordError("");
-        // Password is correct, close the modal and proceed with editing
-        setPasswordModalOpen(false);
-    
-      // Determine which section to edit based on the button clicked
-      if (personalEditMode) {
-        setPersonalEditMode(true);
-      } else if (addressesEditMode) {
-        setAddressesEditMode(true);
-      }
-
-      } else {
-        // Password is incorrect, show an error
-        setPasswordError("Incorrect password");
-      }
-    };
-
-    const handlePasswordCancel = () => {
-      // Clear the password and error state
+  const handlePasswordSave = () => {
+    // Check the entered password against the user's password
+    if (password === userTest.password) {
       setPassword("");
       setPasswordError("");
-
-      // Close the password modal
+      // Password is correct, close the modal and proceed with editing
       setPasswordModalOpen(false);
+  
+    // Determine which section to edit based on the button clicked
+    if (personalEditMode) {
+      setPersonalEditMode(true);
+    } else if (addressesEditMode) {
+      setAddressesEditMode(true);
+    }
 
-      // Check the edit mode and revert changes if needed
-      if (personalEditMode) {
-        setPersonalEditMode(false);
-      } else if (addressesEditMode) {
-        setAddressesEditMode(false);
-      }
-    };
+    } else {
+      // Password is incorrect, show an error
+      setPasswordError("Incorrect password");
+    }
+  };
+
+  const handlePasswordCancel = () => {
+    // Clear the password and error state
+    setPassword("");
+    setPasswordError("");
+
+    // Close the password modal
+    setPasswordModalOpen(false);
+
+    // Check the edit mode and revert changes if needed
+    if (personalEditMode) {
+      setPersonalEditMode(false);
+    } else if (addressesEditMode) {
+      setAddressesEditMode(false);
+    }
+  };
 
   const renderPersonalField = (label, value, name) => (
     <div className="field">
@@ -319,7 +334,7 @@ function MyProfileScreen(props) {
             <div className="edit-button-container">
               {personalEditMode ? (
                 <>
-                  <button onClick={(e) => handlePersonalSave(e)}>Save</button>
+                  <button onClick={(e) => handleSave(e)}>Save</button>
                   <button onClick={handleCancel}>Cancel</button>
                 </>
               ) : (
@@ -340,7 +355,7 @@ function MyProfileScreen(props) {
             <div className="edit-button-container">
               {addressesEditMode ? (
                 <>
-                  <button onClick={(e) => handleAddressesSave(e)}>Save</button>
+                  <button onClick={(e) => handleSave(e)}>Save</button>
                   <button onClick={handleCancel}>Cancel</button>
                 </>
               ) : (
@@ -361,11 +376,18 @@ function MyProfileScreen(props) {
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
-            width: '600px', // Set a width if needed
+            width: '600px',
+            borderRadius: '10px',
+            boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.2)', 
           }
         }}
       >
-        <h2>Enter Your Password</h2>
+        <div className="modal-header">
+          <h2>Enter Your Password</h2>
+          <button className="close-button" onClick={handlePasswordCancel}>
+            &#10005;
+          </button>
+        </div>
         <input
           type="password"
           placeholder="Password"
