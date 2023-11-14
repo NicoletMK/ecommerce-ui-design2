@@ -1,6 +1,7 @@
 import React from "react";
 import Footer from "../Components/Footer";
 import './ScreenCss/EditProfile.css'
+import NavBar from '../Components/NavBar2';
 
 function EditProfileScreen() {
   return (
