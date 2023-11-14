@@ -2,7 +2,7 @@ import React from "react";
 import Footer from "../Components/Footer";
 import './ScreenCss/Wishlist.css'
 import { useEffect } from 'react';
-import NavBar from '../Components/NavigationBar';
+import NavBar from '../Components/NavBar2';
 import { useState } from 'react';
 
 import axios from "axios";
