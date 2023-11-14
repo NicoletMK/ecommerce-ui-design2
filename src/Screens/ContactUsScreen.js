@@ -1,16 +1,22 @@
 import React, { useState } from "react";
 import './ScreenCss/ContactUs.css';
 import { Link, useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope, faPhone, faAddressCard } from '@fortawesome/free-solid-svg-icons';
 
 function ContactUsScreen() {
-  // Define state variables to store form input values
+  
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
   const handleSend = () => {
-    // You can implement logic to send the message or make API calls here
+    
     console.log("Sending message:", { name, email, message });
+     alert("Message sent successfully!");
+     setName("");
+     setEmail("");
+     setMessage("");
   };
 
   return (
@@ -32,15 +38,15 @@ function ContactUsScreen() {
         
         
         <div className="ContactInfoSectionForContactUsScreen">
-          <h2>Contact Information</h2>
-          <p> <b> Email: technotreasure@gmail.com </b></p>
-          <p> <b> Phone: +123-456-7890 </b></p>
-          <p> <b> Address: 6803 Chase Hill Blvd, San Antonio, TX</b></p>  
+        
+           <p><FontAwesomeIcon icon={faEnvelope} /> technotreasure@gmail.com</p>
+            <p><FontAwesomeIcon icon={faPhone} /> +123-456-7890</p>
+            <p><FontAwesomeIcon icon={faAddressCard} /> 6803 Chase Hill Blvd, San Antonio, TX</p>
         </div>
 
         <div className="ContactFormSectionForContactUsScreen">
           
-          <h2>Contact Us</h2>
+          <h2>Hola!! How can we help you? </h2>
           
           <form className="formGroupForContactUsScreen" >
             
@@ -71,6 +77,7 @@ function ContactUsScreen() {
               ></textarea>
             </div>
             <button type="button" onClick={handleSend}>Send</button>
+            
           
           </form>
         

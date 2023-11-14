@@ -1,17 +1,124 @@
-.BackToLoginContainerForContactUsScreen{
-  margin: 10px;
-  display: flex;
-  align-items: center;
+
+.MainContainerForContactUsScreen {
+  position: relative; 
 }
 
-.BacktoLoginForContactUsScreen{
-  background-color: #04AA6D;
-  border: none;
-  color: white;
-  padding: 15px 32px;
+.ContactUsTitleForContactUsScreen{
+  font-size: 2rem;
+}
+.BackToLoginContainerForContactUsScreen {
+  position: absolute; 
+  top: 10px; 
+  left: 10px; 
+}
+
+.BacktoLoginForContactUsScreen {
+  background-color: rgb(38, 54, 63);;
+  color: white; 
+  padding: 8px 15px; 
+  border-radius: 5px; 
+  border: none; 
+  cursor: pointer; 
+  transition: background-color 0.3s; 
+}
+
+.BacktoLoginForContactUsScreen:hover {
+  background-color: #3b7dbd; 
+}
+.ContactUsTitleForContactUsScreen{
   text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+}
+.ContactInfoSectionForContactUsScreen h2,.ContactInfoSectionForContactUsScreen p {
+  text-align: center;
 }
 
+.contactCard {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.contactCard-icon {
+  font-size: 24px;
+  color: #4a90e2;
+}
+
+.contactCard-text {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #333;
+}
+.ContactFormSectionForContactUsScreen h2{
+  padding: 10px;
+  text-align: center;
+  color: rgb(134, 93, 15);
+  font-size: 1.5rem;
+}
+
+.formGroupForContactUsScreen{
+  background-color: #ffffff; 
+  padding: 30px; 
+  border-radius: 10px; 
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  max-width: 500px; 
+  margin: 10px auto;
+}
+
+.formGroupForContactUsScreen input, .formGroupForContactUsScreen textarea {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.formGroupForContactUsScreen label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: normal;
+  font-size: 0.9rem;
+}
+
+.formGroupForContactUsScreen button {
+  background-color:rgb(38, 54, 63);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.formGroupForContactUsScreen button:hover {
+  background-color: #3b7dbd; 
+}
+.successMessage {
+  color: green;
+  margin-top: 15px;
+  font-size: 10px;
+}
+
+@media (max-width: 768px) {
+  .contactCard {
+    margin: 0 auto 20px auto;
+  }
+
+  .formGroupForContactUsScreen {
+    width: 90%;
+    margin: 10px auto;
+    padding: 10px;
+  }
+
+  .formGroupForContactUsScreen input, .formGroupForContactUsScreen textarea {
+   font-size: 0.7rem;
+  }
+
+  .formGroupForContactUsScreen label {
+    font-weight:bold;
+    font-size: 0.7rem;
+  }
+}
