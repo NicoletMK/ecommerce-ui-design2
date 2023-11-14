@@ -64,10 +64,11 @@ function ProductCard(props) {
                         <h1 className='productTitle'> <b> {props.productName} </b> </h1>
                     </div>
                     <div className='ProductPriceAndRatingConatiner1'>
-                        <h1 className='productPrice'> <b> Price: ${props.productPrice} </b> </h1>
-                        <div className='productRating'>
-                            <h1 className='productRating'> <b> Rating: <FaStar /> {props.productRating}</b> </h1>
-                        </div>
+                        <h1 className='productPrice'> <b>Price: ${props.productPrice} </b> </h1>
+                        <h1 className='productPrice'> <b>Rating: <FaStar /> {props.productRating}</b> </h1>
+                        {/* <div className='productRating'>
+                            <h1 className='productRating'> <b>Rating: <FaStar /> {props.productRating}</b> </h1>
+                        </div> */}
                     </div>
                 </div>
                 <div className='iconContainer'>

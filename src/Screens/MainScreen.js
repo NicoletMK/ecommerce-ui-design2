@@ -114,7 +114,8 @@ function MainScreen(props) {
 
         <div className='SampleProductsContainer'>
           {currentProducts.map((product, index) => (
-            <div key={index} className='ProductCard'>
+            // <div key={index} className='ProductCard'>
+            <div key={index} >
               <Link to={'/ProductDetailScreen'}
                 state={{
                   productName:product.name,
