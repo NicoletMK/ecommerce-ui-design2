@@ -104,3 +104,30 @@
   color: #333;
 }
 
+
+.QuickButtonsForMyProfile {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 0 auto;
+}
+
+.MyCartButtonMyProfile,
+.MyWishlistButtonMyProfile,
+.LogoutButtonMyProfile {
+  padding: 10px 20px;
+  font-size: 16px; 
+  background-color: rgb(35, 79, 106);
+  color: #fff;
+  border: none;
+  border-radius: 5px; 
+  cursor: pointer;
+}
+
+/* Add hover styles if desired */
+.MyCartButtonMyProfile:hover,
+.MyWishlistButtonMyProfile:hover,
+.LogoutButtonMyProfile:hover {
+  background-color: #2980b9; 
+}

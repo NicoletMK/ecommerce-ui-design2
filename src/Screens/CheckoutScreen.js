@@ -123,7 +123,7 @@ function CheckoutScreen(props) {
         setPhoneNumber('');
         setPaymentInfo('');
 
-        navigate("/TestScreen");
+        navigate("/MainScreen");
 
     };
 

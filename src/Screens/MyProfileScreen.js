@@ -5,9 +5,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import Modal from 'react-modal';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 import './ScreenCss/MyProfile.css';
 
 function MyProfileScreen(props) {
+
+  const activeUserID = localStorage.getItem('activeUser');
 
   let data = useLocation();
   console.log(data && data.state && data.state.testid);
@@ -26,18 +29,33 @@ function MyProfileScreen(props) {
   const [passwordModalOpen, setPasswordModalOpen] = useState(false);
 
   const [userTest, setUserTest] = useState([]);
+  const [userOrders, setUserOrders] = useState([]);
+
+  // useEffect(() => {
+  //   // Check if data and data.state are not null or undefined before making the API call
+  //   if (data && data.state && data.state.testid) {
+  //     function getUserTest() {
+  //       axios.get("http://localhost:3001/users/"+data.state.testid).then((res) => {
+  //         setUserTest(res.data);
+  //       });
+  //     }
+  //     getUserTest();
+  //   }
+  // }, [data]);
 
   useEffect(() => {
-    // Check if data and data.state are not null or undefined before making the API call
-    if (data && data.state && data.state.testid) {
-      function getUserTest() {
-        axios.get("http://localhost:3001/users/"+data.state.testid).then((res) => {
-          setUserTest(res.data);
-        });
-      }
-      getUserTest();
-    }
-  }, [data]);
+    // Fetch user data
+    axios.get("http://localhost:3001/users/" + activeUserID).then((res) => {
+      setUserTest(res.data);
+    });
+
+    // Retrieve and filter orders from localStorage
+    const orders = Object.keys(localStorage)
+      .filter(key => key.includes(`UserId-${activeUserID}`))
+      .map(key => JSON.parse(localStorage.getItem(key)));
+
+    setUserOrders(orders);
+  }, [activeUserID]);
 
   useEffect(() => {
     // Check if userTest is not an empty array before initializing formData
@@ -171,7 +189,7 @@ function MyProfileScreen(props) {
 
             // Make an API request to update the user's data
         axios
-          .post("http://localhost:3001/users/update/654b15bceb65eab62c7897fe", userDataToUpdate)
+          .post("http://localhost:3001/users/update/"+activeUserID, userDataToUpdate)
           .then((res) => {
             // Handle success - e.g., show a success message
             console.log("User updated!");
@@ -218,7 +236,7 @@ function MyProfileScreen(props) {
 
             // Make an API request to update the user's data
         axios
-          .post("http://localhost:3001/users/update/654b15bceb65eab62c7897fe", userDataToUpdate)
+          .post("http://localhost:3001/users/update/"+activeUserID, userDataToUpdate)
           .then((res) => {
             // Handle success - e.g., show a success message
             console.log("User updated!");
@@ -316,6 +334,20 @@ function MyProfileScreen(props) {
   return (
     <div className="MainContainerForMyProfileScreen">
       <NavBar />
+      <div className="QuickButtonsForMyProfile">
+        <Link to='/CartScreen'>
+          <button className="MyCartButtonMyProfile"> My Cart </button>
+        </Link>
+
+        <Link to='/CartScreen'>
+          <button className="MyWishlistButtonMyProfile"> My Wishlist </button>
+        </Link>
+        
+        <Link to='/LoginScreen'>
+          <button className="LogoutButtonMyProfile"> Logout </button>
+        </Link>
+
+      </div>  
       <div>
         <div className="MyProfilebox">
           <h2>My Profile</h2>
@@ -367,7 +399,8 @@ function MyProfileScreen(props) {
             </div>
           </div>
         </div>
-      </div>   
+      </div>
+      
       <Modal
         isOpen={passwordModalOpen}
         onRequestClose={handlePasswordCancel}
@@ -400,7 +433,7 @@ function MyProfileScreen(props) {
           <button className="cancel-button" onClick={handlePasswordCancel}>Cancel</button>
         </div>
       </Modal>
-     </div> 
+    </div> 
   );
 }
 
