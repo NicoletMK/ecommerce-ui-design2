@@ -120,6 +120,7 @@ function MainScreen(props) {
                   productName:product.name,
                   productPrice: product.productPrice,
                   productId: product.productId,
+                  productRating: product.productRating,
                   productImagePath: product.productImage,
                   productImagePath1: product.productImageAdd1,
                   productImagePath2: product.productImageAdd2,
