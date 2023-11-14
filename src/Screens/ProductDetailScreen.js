@@ -11,6 +11,7 @@ import image2 from '../Images/Sony2.jpeg';
 import image3 from '../Images/Sony3.jpeg';
 import image4 from '../Images/Sony4.jpeg';
 import image5 from '../Images/Sony5.jpeg';
+import { FaStar } from 'react-icons/fa';
 
 function ProductDetail(props) {
   
@@ -163,7 +164,7 @@ function ProductDetail(props) {
           
           <div className="PriceAndRatingDiv">
             <h3 className="product-price"> Price: ${product.price}</h3>
-            <h3 className="product-rating"> Price: ${product.rating}</h3>
+            <h3 className="product-rating"> Rating: <FaStar /> {product.rating}</h3>
           </div>
 
           {/* <div className="quantity-select">

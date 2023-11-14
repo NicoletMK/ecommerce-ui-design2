@@ -59,7 +59,7 @@ function WishlistScreen(props) {
                         <ul>
                             <li> <img src={product.productImagePath} alt="error" /> </li>
                             {/* <li> {product.productId} </li> */}
-                            <li> {product.productName} </li>
+                            <li> <h3> {product.productName} </h3> </li>
                             <li> {product.productCategory} </li>
                             <li> {product.productDescription} </li>
                             <button className='RemoveItemButton' onClick={(e) => handleRemoveFromWishlist(product.productId)}> Remove Item </button>
@@ -68,6 +68,7 @@ function WishlistScreen(props) {
                 ))}
             </div>
         )}
+      
       </div>
 
 

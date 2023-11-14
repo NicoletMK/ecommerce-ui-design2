@@ -106,12 +106,14 @@
 
 
 .QuickButtonsForMyProfile {
-  width: 90%;
+  width: 98%;
   display: flex;
   justify-content: space-between;
-  padding: 10px;
+  padding-top: 10px;
   margin: 0 auto;
 }
+
+
 
 .MyCartButtonMyProfile,
 .MyWishlistButtonMyProfile,
@@ -125,9 +127,60 @@
   cursor: pointer;
 }
 
+.MyWishlistButtonMyProfile{
+  margin-left: 10px;
+}
+
 /* Add hover styles if desired */
 .MyCartButtonMyProfile:hover,
 .MyWishlistButtonMyProfile:hover,
 .LogoutButtonMyProfile:hover {
   background-color: #2980b9; 
+}
+
+
+ .modal {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+  position: relative;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: black;
+}
+
+.order-details {
+  margin-top: 20px;
+}
+
+.OrderDetailsBox{
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  width: 44%;
+  box-shadow: 2px 2px 5px 5px rgb(167, 165, 165);
+  border-radius: 15px;
+  margin-left: 19px;
 }

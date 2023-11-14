@@ -179,6 +179,51 @@ body {
   .review-form {
     margin-top: 20px;
   }
+
+  .ContainerForTheItemCountButtonsAddToCartAndWishList {
+    display: flex;
+    align-items: center;
+  }
+  
+  .quantityInput {
+    width: 10vh;
+    height: 4vh;
+    margin-right: 10px;
+  }
+  
+  .addToCartButton,
+  .addToWishlistButton {
+    background-color: #4caf50; /* Green color, you can change it */
+    color: #fff; /* White text color */
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  
+  .addToWishlistButton {
+    background-color: #2196F3; /* Blue color, you can change it */
+  }
+  
+  .addToCartButton:hover,
+  .addToWishlistButton:hover {
+    background-color: #45a049; /* Darker green color on hover, you can change it */
+  }
+  
+  /* .quantityInput::-webkit-inner-spin-button,
+  .quantityInput::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  .quantityInput[type="number"] {
+    -moz-appearance: textfield;
+  } */
+  
   
   /* ... (rest of the CSS remains the same) */
   

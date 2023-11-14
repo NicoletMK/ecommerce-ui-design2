@@ -31,6 +31,9 @@ function MyProfileScreen(props) {
   const [userTest, setUserTest] = useState([]);
   const [userOrders, setUserOrders] = useState([]);
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedOrder, setSelectedOrder] = useState(null);
+
   // useEffect(() => {
   //   // Check if data and data.state are not null or undefined before making the API call
   //   if (data && data.state && data.state.testid) {
@@ -331,26 +334,45 @@ function MyProfileScreen(props) {
     </div>
   );
 
+  const handleOrderClick = (order) => {
+    setSelectedOrder(order);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedOrder(null);
+  };
+
   return (
     <div className="MainContainerForMyProfileScreen">
+      
       <NavBar />
+      
+      
       <div className="QuickButtonsForMyProfile">
-        <Link to='/CartScreen'>
-          <button className="MyCartButtonMyProfile"> My Cart </button>
-        </Link>
 
-        <Link to='/CartScreen'>
-          <button className="MyWishlistButtonMyProfile"> My Wishlist </button>
-        </Link>
+        <div className="QuickButtonsLeftSideMyCartAndWishlist">
+          <Link to='/CartScreen'>
+            <button className="MyCartButtonMyProfile"> My Cart </button>
+          </Link>
+
+          <Link to='/CartScreen'>
+            <button className="MyWishlistButtonMyProfile"> My Wishlist </button>
+          </Link>
+        </div>
         
-        <Link to='/LoginScreen'>
-          <button className="LogoutButtonMyProfile"> Logout </button>
-        </Link>
+        <div className="QuickButtonsLeftSideMyCartAndWishlist">
+          <Link to='/LoginScreen'>
+            <button className="LogoutButtonMyProfile"> Logout </button>
+          </Link>
+        </div>
 
       </div>  
+      
       <div>
         <div className="MyProfilebox">
-          <h2>My Profile</h2>
+          <h1>Welcome {formData.firstname}! Good to see you! </h1>
         </div>
         <div className="box-container">
           <div className="Detailsbox">
@@ -399,6 +421,20 @@ function MyProfileScreen(props) {
             </div>
           </div>
         </div>
+
+        <div className="OrderDetailsBox">
+          <div className="OrderInformationTitleContainer">
+            <h2> Previous Order Details </h2>
+          </div>
+          
+          <div>
+            {userOrders.map((order, index) => (
+                <div key={index} className="OrderItem" onClick={() => handleOrderClick(order)}>
+                  <p>Order ID: <span>{order.orderId}</span></p>
+                </div>
+              ))}
+          </div>
+        </div>
       </div>
       
       <Modal
@@ -433,6 +469,47 @@ function MyProfileScreen(props) {
           <button className="cancel-button" onClick={handlePasswordCancel}>Cancel</button>
         </div>
       </Modal>
+
+      {isModalOpen && (
+        <div className="modal">
+          <div className="modal-content">
+            <span className="close" onClick={closeModal}>
+              &times;
+            </span>
+            <h3> <u> Order Details </u></h3>
+            <div className="order-details">
+              {selectedOrder && (
+                <div className="OrderItem">
+                  
+                  <p> <b> <u> Order ID: <span>{selectedOrder.orderId}</span> </u> </b></p>
+                  <p>Order Total: <span>${selectedOrder.orderTotal}</span></p>
+                  <p>Order PhoneNumber: <span>{selectedOrder.phoneNumber}</span></p>
+                  {/* <p>Order Email: <span>{selectedOrder.emailAddressUsed}</span></p> */}
+                  {/* <p>Order Payment Method: <span>{selectedOrder.paymentMethod}</span></p> */}
+                  {/* <p>Card Number: <span>{selectedOrder.creditCardNumber}</span></p> */}
+                  <p>Order Shipping Address: <span>{selectedOrder.shippingAddress}</span></p>
+                  <p>Order Billing Address: <span>{selectedOrder.billingAddress}</span></p>
+            
+                  <h3>Products in the order:</h3>
+
+                  {selectedOrder.products.map((product, index) => (
+                    <div key={index} className="ProductItem">
+                      <p><b> Product Number: {index+1} </b></p>
+                      <p>Name: {product.productName}</p>
+                      <p>Price: {product.productPrice}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+    
+    
+    
+    
+    
     </div> 
   );
 }
