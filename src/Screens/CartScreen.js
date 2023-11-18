@@ -118,7 +118,10 @@ function CartScreen() {
 
       <div className="ProductsAndOrderSummaryContainer">
         <div className="CartBox">
-          <h2>Shopping Cart</h2>
+          <h1>Shopping Cart</h1>
+          {products.length === 0 ? (
+            <p>No items in the cart. Explore our products and add to your cart!</p>
+          ) : (
           <div className="ProductsInCartContainer">
             {products.map((product, index) => (
               <div key={index} className="ProductCard">
@@ -154,18 +157,13 @@ function CartScreen() {
               </div>
             ))}
           </div>
+          )}
         </div>
 
         <div className="OrderSummaryContainer">
           <h3>Order Summary</h3>
           {/* <p>Total Price: ${products.reduce((total, product) => total + product.price * product.quantity, 0).toFixed(2)}</p> */}
           <p>Total Price: ${calculateCartTotal().toFixed(2)}</p>
-
-          {/* {products.length > 0 && (
-            <button className="CheckoutButton" onClick={() => navigate('/CheckoutScreen')}>
-              Checkout
-            </button>
-          )} */}
 
           {products.length > 0 && (
             <div>

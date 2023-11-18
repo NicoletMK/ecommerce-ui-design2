@@ -4,6 +4,7 @@ import './ScreenCss/Wishlist.css'
 import { useEffect } from 'react';
 import NavBar from '../Components/NavBar2';
 import { Link } from "react-router-dom";
+import { FaStar, FaRegStar } from 'react-icons/fa';
 import { useState } from 'react';
 
 import axios from "axios";
@@ -60,6 +61,16 @@ function WishlistScreen(props) {
 
   }
 
+  const renderStars = (rating) => {
+    let stars = [];
+    for (let i = 1; i <= 5; i++) {
+        stars.push(
+            i <= rating ? <FaStar color="orange" key={i} /> : <FaRegStar color="orange" key={i} />
+        );
+    }
+    return stars;
+   };
+
 
   return (
     <>
@@ -70,7 +81,7 @@ function WishlistScreen(props) {
       <div className="MainContainerForWishlistScreen">
         <div className="WishlistHeader">
           <h1> Your Wishlist {userTest.firstname} {userTest.lastname}</h1>
-        {productsWishlist.length === 0 ? (
+          {productsWishlist.length === 0 ? (
             <p>No products found in your wishlist. Explore our products and add your favorites!!</p>
         ) : (
             <div className='ProductsInWishlistContainer'>
@@ -79,8 +90,9 @@ function WishlistScreen(props) {
                         <ul>
                             <li> <img src={product.productImagePath} alt="error" /> </li>
                             <li> <h3> {product.productName} </h3> </li>
-                            <li> {product.productCategory} </li>
-                            <li> {product.productDescription} </li>
+                            <li>Description: {product.productDescription} </li>
+                            <li> Rating:{renderStars(product.productRating)}</li>
+                            <li> Price: ${Number(product.productPrice).toFixed(2)} </li>
                             {/* <li> {product.productPrice}</li> */}
                             <button className='RemoveItemButton' onClick={(e) => handleRemoveFromWishlist(product.productId)}> Remove Item </button>
                             <Link to="/CartScreen">

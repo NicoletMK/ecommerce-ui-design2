@@ -10,10 +10,18 @@
 .WishlistHeader{
     border: 1px solid #ddd;
     box-shadow: 2px 2px 5px 5px rgb(167, 165, 165);
-    border-radius: 5px;
+    border-radius: 15px;
     margin-top: 10px;
     margin-right: 10px;
     margin-bottom: 10px;
+}
+
+.WishlistHeader h1{
+    margin-left: 5px;
+}
+
+.WishlistHeader p{
+    margin-left: 12px;
 }
 
 .ProductsInWishlistContainer{
@@ -25,7 +33,7 @@
     flex-direction: column;
     justify-content: space-between;
     height: 65vh;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .WishlistAddToCartButton{

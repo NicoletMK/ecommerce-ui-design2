@@ -12,6 +12,15 @@
   margin: 20px; 
 }
 
+.CartBox h1{
+  margin-left: 5px;
+}
+
+.CartBox p{
+  margin-left: 12px;
+  font-size: 1em;
+}
+
 .ProductsAndOrderSummaryContainer {
   display: flex;
 }
