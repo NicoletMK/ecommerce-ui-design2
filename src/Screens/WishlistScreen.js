@@ -3,6 +3,7 @@ import Footer from "../Components/Footer";
 import './ScreenCss/Wishlist.css'
 import { useEffect } from 'react';
 import NavBar from '../Components/NavBar2';
+import { Link } from "react-router-dom";
 import { useState } from 'react';
 
 import axios from "axios";
@@ -36,44 +37,65 @@ function WishlistScreen(props) {
     localStorage.setItem('wishlist-products-key-'+activeUserID, JSON.stringify(updatedProductsWishlist));
 
     alert("Item Removed from wishlist!")
-  }   
+  }  
+  
+  const handleAddToCart = (product) => {
+
+    const prevProducts = JSON.parse(localStorage.getItem('products-key-' + activeUserID)) || []
+
+    const existingProductIndex = prevProducts.findIndex(
+      (item) => item.productId === product.productId
+    );
+
+    if (existingProductIndex !== -1) {
+      alert('This item is already in your cart!');
+      return;
+    } else {
+      product.count = 1;
+      prevProducts.push(product);
+    }
+
+    // Update the cart in local storage
+    localStorage.setItem('products-key-' + activeUserID, JSON.stringify(prevProducts));
+
+  }
 
 
   return (
-
-    <div className="CotainerForWishlistPage">
-
+    <>
       <div className="ContainerForNavBar">
         <NavBar />
       </div>
 
       <div className="MainContainerForWishlistScreen">
-        <h1> Your Wishlist {userTest.firstname} {userTest.lastname}</h1>
-
+        <div className="WishlistHeader">
+          <h1> Your Wishlist {userTest.firstname} {userTest.lastname}</h1>
         {productsWishlist.length === 0 ? (
-            <p>No products in your wishlist</p>
+            <p>No products found in your wishlist. Explore our products and add your favorites!!</p>
         ) : (
             <div className='ProductsInWishlistContainer'>
                 {productsWishlist.map((product, index) => (
                     <div key={index} className='ProductCard'>
                         <ul>
                             <li> <img src={product.productImagePath} alt="error" /> </li>
-                            {/* <li> {product.productId} </li> */}
                             <li> <h3> {product.productName} </h3> </li>
                             <li> {product.productCategory} </li>
                             <li> {product.productDescription} </li>
+                            {/* <li> {product.productPrice}</li> */}
                             <button className='RemoveItemButton' onClick={(e) => handleRemoveFromWishlist(product.productId)}> Remove Item </button>
+                            <Link to="/CartScreen">
+                              <button onClick={(e) => handleAddToCart(product)} className="WishlistAddToCartButton">
+                                Add to Cart
+                              </button>
+                            </Link>
                         </ul>
                     </div>
                 ))}
             </div>
         )}
-      
+        </div>
       </div>
-
-
-
-    </div>
+  </>  
   );
 }
 
