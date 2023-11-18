@@ -90,7 +90,7 @@ function MainScreen(props) {
         <div className='category-card' onClick={() => handleCategoryFilter('HomeAppliances')}>Home Appliances</div>
         <div className='category-card' onClick={() => handleCategoryFilter('FitnessAndHealth')}>Fitness and Health</div>
         <div className='category-card' onClick={() => handleCategoryFilter('VideoGames')}>Video Games</div>
-        <div className='category-card' onClick={() => handleCategoryFilter('CamerasCamcorders&Drones')}>Cameras, Camcorders & Drones</div>
+        <div className='category-card' onClick={() => handleCategoryFilter('Cameras/Camcorders&Drones')}>Cameras, Camcorders & Drones</div>
 
       </div>
       <div className='TestScreenContainer'>

@@ -1,41 +1,73 @@
-/* .PrivacyPolicyScreen{
-    text-align: center;
-} */
+.MainContainerForPrivacyScreen {
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+  margin: 0 auto;
+}
+.privacy-backButton{
+  align-self: flex-start;
+  margin-bottom: 20px;
+  padding: 10px 15px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color:rgb(38, 54, 63);
+  text-decoration: none;
 
+}
 
-/* PrivacyPolicy.css */
-.MainContainerForLoginScreen {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Align items to the left */
-    justify-content: flex-start;
-    height: 100vh;
-    margin: 0;
+.privacy-backButton:hover {
+  background-color: #3b7dbd; 
+}
+.MainContainerForLoginScreen h1 {
+  color: #ED520F;
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.MainContainerForLoginScreen h2 {
+  color: #333;
+  font-size: 1.5em;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.MainContainerForLoginScreen ul {
+  margin: 0;
+  padding: 0 20px;
+}
+
+.MainContainerForLoginScreen li {
+  list-style: none;
+  margin-bottom: 10px;
+  padding-left: 15px;
+  position: relative;
+}
+
+.MainContainerForLoginScreen li::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 5px;
+  width: 5px;
+  height: 5px;
+  background-color: #ED520F;
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 768px) {
+  .MainContainerForLoginScreen {
+      padding: 20px;
   }
-  
-  h1, h2, p, ul {
-    text-align: left; /* Align text to the left */
+
+  .MainContainerForLoginScreen h1 {
+      font-size: 1.5em;
   }
-  
-  h1 {
-    font-size: 18px;
-    margin: 20px;
-    padding: 10px;
+
+  .MainContainerForLoginScreen h2 {
+      font-size: 1.2em;
   }
-  
-  h2 {
-    font-size: 14px;
-    margin: 10px 0;
-  }
-  
-  ul {
-    list-style-type: disc;
-    margin-left: 20px;
-    padding-left: 20px;
-  }
-  
-  p {
-    font-size: 12px;
-    margin: 5px 0;
-  }
-  
+}

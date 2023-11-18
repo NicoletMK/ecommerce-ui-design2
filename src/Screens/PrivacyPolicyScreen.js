@@ -1,25 +1,13 @@
-// import React from "react";
-// import Footer from "../Components/Footer";
-// import './ScreenCss/PrivacyPolicy.css'
-
-// function PrivacyPolicyScreen() {
-//   return (
-//     <div className="MainContainerForLoginScreen">
-//       <h1> Please put all the things for the Privacy Policy Screen here in this page </h1>
-//     </div>
-//   );
-// }
-
-// export default PrivacyPolicyScreen;
-
 import React from "react";
 
-
 import './ScreenCss/PrivacyPolicy.css'
-
+import { Link } from 'react-router-dom';
 function PrivacyPolicyScreen() {
   return (
-    <div className="MainContainerForLoginScreen">
+    <div className="MainContainerForPrivacyScreen">
+       <Link to='/LoginScreen'>
+      <button className="privacy-backButton">Back to Login</button>
+      </Link>
       <div style={{ textAlign: 'center' }}>
   <h1>
     <span style={{ fontWeight: 'bold', color: 'rgb(237, 82, 15)' }}>
@@ -38,11 +26,11 @@ function PrivacyPolicyScreen() {
       <h2>1. Information We Collect:</h2>
       <ul>
         <li>
-          a. Personal Information:
+          Personal Information:
           This may include your name, email address, phone number, billing and shipping addresses, and payment information.
         </li>
         <li>
-          b. Usage Information: We may collect information about your interactions with our website, such as your IP address, browser type, and operating system.
+          Usage Information: We may collect information about your interactions with our website, such as your IP address, browser type, and operating system.
         </li>
         <li>
           c. Cookies and Tracking Technologies: We use cookies and similar technologies to collect data about your browsing activity on our website for analytics and advertising purposes. You can manage your cookie preferences through your browser settings.
@@ -52,26 +40,26 @@ function PrivacyPolicyScreen() {
       <h2>2. How We Use Your Information</h2>
       <ul>
         <li>
-          a. Order Fulfillment: To process your orders, send order confirmations, and provide customer support.
+          Order Fulfillment: To process your orders, send order confirmations, and provide customer support.
         </li>
         <li>
-          b. Account Maintenance: To manage your account, including providing access to your order history and personalized content.
+          Account Maintenance: To manage your account, including providing access to your order history and personalized content.
         </li>
         <li>
-          c. Marketing: To send you promotional materials, updates, and information about our products and services. You can opt-out of marketing communications at any time.
+          Marketing: To send you promotional materials, updates, and information about our products and services. You can opt-out of marketing communications at any time.
         </li>
         <li>
-          d. Analytics: To analyze website traffic, monitor user behavior, and improve our website and services.
+          Analytics: To analyze website traffic, monitor user behavior, and improve our website and services.
         </li>
       </ul>
 
       <h2>3. Information Sharing</h2>
       <ul>
         <li>
-          a. Service Providers: We may share your information with third-party service providers that help us deliver our services, such as payment processors and shipping companies.
+          Service Providers: We may share your information with third-party service providers that help us deliver our services, such as payment processors and shipping companies.
         </li>
         <li>
-          b. Legal Compliance: We may disclose information in response to a legal request, if required by law, or to protect our rights and the rights of others.
+          Legal Compliance: We may disclose information in response to a legal request, if required by law, or to protect our rights and the rights of others.
         </li>
       </ul>
 
