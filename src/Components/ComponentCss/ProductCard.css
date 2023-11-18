@@ -1,79 +1,96 @@
 .productCardContainer {
-  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
   transition: 0.3s;
   border-radius: 5px;
-  background-color: #f4f4f4;
+  background-color: rgb(242, 244, 249);
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  /* padding: 10px; */
-  width: 30vh;
-  height: 35vh;
+  width: 45vh;
+  height: 65vh;
+  max-width: 400px; /* Maximum width for large screens */
+  max-height: 390px;
+  border: 1px solid rgba(164, 200, 200, 0.01);
 }
 
 .productCardContainer:hover {
-  transform: scale(1.03); 
-  box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.3); 
+  transform: scale(1.03);
+  box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.3);
 }
-
 
 .imageContainer {
   display: flex;
   justify-content: center;
-  height: 10rem;
+  align-items: center;
+  height: 40%;
   background-color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .imagePlaceholder {
-  max-width: 100%;
+  max-width: 90%;
   max-height: 100%;
-  object-fit: contain; /* This will ensure the entire image is visible */
+  object-fit: contain;
 }
 
-/* Detail container */
 .detailContainer {
   display: flex;
   flex-direction: column;
-  padding: 10px;
-  /* Added padding for spacing */
-  font-size: 0.3em;
-  /* Reduced font size */
+  height: 50%;
+  
 }
 
-.ProductPriceAndRatingContainer1 {
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8rem;
+}
+
+.productTitle {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+  text-align: center;
+  
+}
+
+.ProductPriceAndRatingConatiner1 {
   display: flex;
   justify-content: space-between;
-  /* Distributes space evenly */
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .productRating {
   display: flex;
   align-items: center;
-  margin-top: 5px;
-  /* Adjust as needed */
-  font-size: 10px;
+
 }
 
-.productRating b {
-  margin-left: 5px;
+.productPrice {
+  font-size: 0.8rem;
 }
 
-/* Icon container */
 .iconContainer {
   display: flex;
   justify-content: space-between;
-  /* Distributes space evenly */
+ 
+  padding-left:  20px;
+  padding-right:  20px;
+
+
 }
 
-.icon {
-  font-size: 22px;
-  color: #333;
-  margin: 10px;
-  /* Uniform margin */
+.product-icon {
+  font-size: 1.4rem;
   cursor: pointer;
   transition: color 0.3s;
+ 
 }
 
-.icon:hover {
-  color: #ff5733;
+.product-icon svg {
+  color: rgb(50, 102, 103);
+}
+.product-icon:hover svg {
+  transform: scale(1.2);
+  color: rgb(254, 151, 92)
 }

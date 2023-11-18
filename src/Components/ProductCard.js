@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { FaStar } from 'react-icons/fa';
 
-import ProductPlaceHolderImage from '../Images/productComingSoon.jpg';
+import ProductPlaceHolderImage from '../Images/productComingSoon.png';
 
 
 function ProductCard(props) {
@@ -56,23 +56,21 @@ function ProductCard(props) {
 
         <div className="productCardContainer">
             <div className='imageContainer'>
-                <img className='imagePlaceholder' src={props.productImagePath} alt="Error!"  />
+                <img className='imagePlaceholder' src={props.productImagePath} alt="Error!" />
             </div>
             <div className='detailContainer'>
                 <div className='titleContainer'>
-                    <div className='ProductTitleConatiner1'>
-                        <h1 className='productTitle'> <b> {props.productName} </b> </h1>
-                    </div>
+                    <h1 className='productTitle'> <b> {props.productName}</b> </h1>
                     <div className='ProductPriceAndRatingConatiner1'>
-                        <h1 className='productPrice'> <b>Price: ${props.productPrice} </b> </h1>
-                        <h1 className='productPrice'> <b>Rating: <FaStar /> {props.productRating}</b> </h1>
+                        <h1 className='productPrice'> Price: ${props.productPrice}  </h1>
+                        <h1 className='productPrice'> Rating: <FaStar /> {props.productRating} </h1>
                         {/* <div className='productRating'>
                             <h1 className='productRating'> <b>Rating: <FaStar /> {props.productRating}</b> </h1>
                         </div> */}
                     </div>
                 </div>
                 <div className='iconContainer'>
-                    <span className='icon'>
+                    <span className='product-icon'>
                         <Link
                             to={'/WishlistScreen'}
                             style={{ textDecoration: 'none', color: '#0C2340' }}
@@ -81,7 +79,7 @@ function ProductCard(props) {
                             <FontAwesomeIcon icon={faHeart} size="1x" />
                         </Link>
                     </span>
-                    <span className='icon'>
+                    <span className='product-icon'>
                         <Link to={'/CartScreen'}
                             state={{ productName: props.productName, productId: props.productId }}
                             style={{ textDecoration: 'none', color: '#0C2340' }}

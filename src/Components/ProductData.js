@@ -1,18 +1,18 @@
-import ProductPlaceHolderImage from '../Images/productComingSoon.jpg';
+import ProductPlaceHolderImage from '../Images/productComingSoon.png';
 
-import MacbookImage1 from '../Images/Products/MacBook/MacBook1.jpeg';
+import MacbookImage1 from '../Images/Products/MacBook/Macbook1.png';
 import MacbookImage2 from '../Images/Products/MacBook/Macbook2.jpeg';
 import MacbookImage3 from '../Images/Products/MacBook/Macbook3.jpeg';
 import MacbookImage4 from '../Images/Products/MacBook/Macbook4.jpeg';
 import MacbookImage5 from '../Images/Products/MacBook/Macbook5.jpeg';
 
-import iPhone15Pro1 from '../Images/Products/iPhone15Pro/iPhone15Pro1.jpeg';
+import iPhone15Pro1 from '../Images/Products/iPhone15Pro/iPhone15Pro1.png';
 import iPhone15Pro2 from '../Images/Products/iPhone15Pro/iPhone15Pro2.jpeg';
 import iPhone15Pro3 from '../Images/Products/iPhone15Pro/iPhone15Pro3.jpeg';
 import iPhone15Pro4 from '../Images/Products/iPhone15Pro/iPhone15Pro4.jpeg';
 import iPhone15Pro5 from '../Images/Products/iPhone15Pro/iPhone15Pro5.jpeg';
 
-import iPhone15ProMax1 from '../Images/Products/iPhone15ProMax/iPhone15ProMax1.jpeg';
+import iPhone15ProMax1 from '../Images/Products/iPhone15ProMax/iPhone15ProMax1.png';
 import iPhone15ProMax2 from '../Images/Products/iPhone15ProMax/iPhone15ProMax2.jpeg';
 import iPhone15ProMax3 from '../Images/Products/iPhone15ProMax/iPhone15ProMax3.jpeg';
 import iPhone15ProMax4 from '../Images/Products/iPhone15ProMax/iPhone15ProMax4.jpeg';
@@ -155,8 +155,8 @@ export const ProductData = [
     {   
         name: "Macbook 2015", 
         productId: "1", 
-        productImage:MacbookImage2, 
-        productImageAdd1:MacbookImage1, 
+        productImage:MacbookImage1, 
+        productImageAdd1:MacbookImage2, 
         productImageAdd2:MacbookImage3, 
         productImageAdd3:MacbookImage4, 
         productImageAdd4:MacbookImage5, 
@@ -319,8 +319,8 @@ export const ProductData = [
         productImageAdd3:MicroMouse4, 
         productImageAdd4:MicroMouse5, 
         productDetail: "The Surface Arc mouse is designed to conform comfortably to your hand - and snaps flat to fit easily in your bag. The next generation of the Arc Touch mouse, the Surface Arc mouse features numerous refinements, including the ability to scroll both vertically and horizontally. Connects via Bluetooth. Now available in a choice of rich colors to complement your style. ", 
-        productCategory: "4.6", 
-        productRating:"ComputerAndLaptop", 
+        productCategory: "ComputerAndLaptop", 
+        productRating:"4.6", 
         productPrice: "79.99"
     },
     {   
