@@ -150,6 +150,42 @@ import SGM3 from '../Images/Products/S23Ultra/S23Ultra3.jpeg';
 import SGM4 from '../Images/Products/S23Ultra/S23Ultra4.jpeg';
 import SGM5 from '../Images/Products/S23Ultra/S23Ultra5.jpeg';
 
+import Dishwash1 from '../Images/Products/Dishwasher/DishWasher1.jpeg';
+import Dishwash2 from '../Images/Products/Dishwasher/DishWasher2.jpeg';
+import Dishwash3 from '../Images/Products/Dishwasher/Dishwasher3.png';
+import Dishwash4 from '../Images/Products/Dishwasher/Dishwasher4.png';
+import Dishwash5 from '../Images/Products/Dishwasher/Dishwasher5.jpeg';
+
+import fitbit1 from '../Images/Products/Fitbit/fitbit1.png';
+import fitbit2 from '../Images/Products/Fitbit/fitbit2.png';
+import fitbit3 from '../Images/Products/Fitbit/fitbit3.png';
+import fitbit4 from '../Images/Products/Fitbit/fitbit4.png';
+import fitbit5 from '../Images/Products/Fitbit/fitbit5.png';
+
+import sps51 from '../Images/Products/SonyPS5/Sps51.png';
+import sps52 from '../Images/Products/SonyPS5/Sps52.png';
+import sps53 from '../Images/Products/SonyPS5/SPs53.png';
+import sps54 from '../Images/Products/SonyPS5/Sps51.png';
+import sps55 from '../Images/Products/SonyPS5/Sps52.png';
+
+import sony551 from '../Images/Products/Sony554k/sony551.png';
+import sony552 from '../Images/Products/Sony554k/sony552.jpg';
+import sony553 from '../Images/Products/Sony554k/sony553.png';
+import sony554 from '../Images/Products/Sony554k/sony554.png';
+import sony555 from '../Images/Products/Sony554k/sony555.png';
+
+import sony651 from '../Images/Products/Sony554k/sony553.png';
+import sony652 from '../Images/Products/Sony554k/sony552.jpg';
+import sony653 from '../Images/Products/Sony554k/sony553.png';
+import sony654 from '../Images/Products/Sony554k/sony554.png';
+import sony655 from '../Images/Products/Sony554k/sony555.png';
+
+import sony451 from '../Images/Products/Sony45/sony451.png';
+import sony452 from '../Images/Products/Sony45/sony451.png';
+import sony453 from '../Images/Products/Sony45/sony451.png';
+import sony454 from '../Images/Products/Sony45/sony451.png';
+import sony455 from '../Images/Products/Sony45/sony451.png';
+
 
 export const ProductData = [
     {   
@@ -207,11 +243,11 @@ export const ProductData = [
     {   
         name: "Clean Dishwasher", 
         productId: "5", 
-        productImage:ProductPlaceHolderImage, 
-        productImageAdd1:ProductPlaceHolderImage, 
-        productImageAdd2:ProductPlaceHolderImage, 
-        productImageAdd3:ProductPlaceHolderImage, 
-        productImageAdd4:ProductPlaceHolderImage, 
+        productImage:Dishwash3, 
+        productImageAdd1:Dishwash2, 
+        productImageAdd2:Dishwash1, 
+        productImageAdd3:Dishwash4, 
+        productImageAdd4:Dishwash5, 
         productDetail: "This is a description for Dishwasher that should work. This is only a description", 
         productCategory: "HomeAppliances", 
         productRating:"4", 
@@ -220,11 +256,11 @@ export const ProductData = [
     {   
         name: "Fitbit Watch 5", 
         productId: "6", 
-        productImage:ProductPlaceHolderImage, 
-        productImageAdd1:ProductPlaceHolderImage, 
-        productImageAdd2:ProductPlaceHolderImage, 
-        productImageAdd3:ProductPlaceHolderImage, 
-        productImageAdd4:ProductPlaceHolderImage, 
+        productImage:fitbit1, 
+        productImageAdd1:fitbit2, 
+        productImageAdd2:fitbit3, 
+        productImageAdd3:fitbit4, 
+        productImageAdd4:fitbit5, 
         productDetail: "This is a description for Fitbit Watch that should work. This is only a description", 
         productCategory: "FitnessAndHealth", 
         productRating:"3", 
@@ -233,11 +269,11 @@ export const ProductData = [
     {   
         name: "Sony PS5", 
         productId: "7", 
-        productImage:ProductPlaceHolderImage, 
-        productImageAdd1:ProductPlaceHolderImage, 
-        productImageAdd2:ProductPlaceHolderImage, 
-        productImageAdd3:ProductPlaceHolderImage, 
-        productImageAdd4:ProductPlaceHolderImage, 
+        productImage:sps51, 
+        productImageAdd1:sps52, 
+        productImageAdd2:sps53, 
+        productImageAdd3:sps54, 
+        productImageAdd4:sps55, 
         productDetail: "This is a description for Sony PS5 that should work. This is only a description", 
         productCategory: "VideoGames", 
         productRating:"5", 
@@ -246,11 +282,11 @@ export const ProductData = [
     {   
         name: "Sony 55' 4K TV", 
         productId: "8", 
-        productImage:ProductPlaceHolderImage, 
-        productImageAdd1:ProductPlaceHolderImage, 
-        productImageAdd2:ProductPlaceHolderImage, 
-        productImageAdd3:ProductPlaceHolderImage, 
-        productImageAdd4:ProductPlaceHolderImage, 
+        productImage:sony551, 
+        productImageAdd1:sony552, 
+        productImageAdd2:sony553, 
+        productImageAdd3:sony554, 
+        productImageAdd4:sony555, 
         productDetail: "This is a description for Sony TV - 55' 4k UHD that should work. This is only a description", 
         productCategory: "TVsAndScreen", 
         productRating:"5", 
@@ -259,11 +295,11 @@ export const ProductData = [
     {   
         name: "Samsung 65' 4K TV", 
         productId: "9", 
-        productImage:ProductPlaceHolderImage, 
-        productImageAdd1:ProductPlaceHolderImage, 
-        productImageAdd2:ProductPlaceHolderImage, 
-        productImageAdd3:ProductPlaceHolderImage, 
-        productImageAdd4:ProductPlaceHolderImage, 
+        productImage:sony651, 
+        productImageAdd1:sony652, 
+        productImageAdd2:sony653, 
+        productImageAdd3:sony654, 
+        productImageAdd4:sony655, 
         productDetail: "This is a description for Samsung TV - 65' 4k UHD that should work. This is only a description", 
         productCategory: "TVsAndScreen", 
         productRating:"4", 
@@ -272,11 +308,11 @@ export const ProductData = [
     {   
         name: "Sony 42' LED TV", 
         productId: "10", 
-        productImage:ProductPlaceHolderImage, 
-        productImageAdd1:ProductPlaceHolderImage, 
-        productImageAdd2:ProductPlaceHolderImage, 
-        productImageAdd3:ProductPlaceHolderImage, 
-        productImageAdd4:ProductPlaceHolderImage, 
+        productImage:sony451, 
+        productImageAdd1:sony452, 
+        productImageAdd2:sony453, 
+        productImageAdd3:sony454, 
+        productImageAdd4:sony455, 
         productDetail: "This is a description for Sony TV - 42' LED that should work. This is only a description", 
         productCategory: "TVsAndScreen", 
         productRating:"2", 
@@ -546,5 +582,6 @@ export const ProductData = [
         productRating:"4.7", 
         productPrice: "297.99"
     },
+
 
 ];
