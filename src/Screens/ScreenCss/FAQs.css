@@ -7,14 +7,12 @@
 
 .faq-backButton {
     align-self: flex-start;
-    margin-bottom: 20px;
-    padding: 10px 15px;
+    background-color: rgb(35, 79, 106);
     color: white;
+    padding: 8px 16px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    background-color:rgb(38, 54, 63);
-    text-decoration: none;
 
 }
 

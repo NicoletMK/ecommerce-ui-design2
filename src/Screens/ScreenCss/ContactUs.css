@@ -13,7 +13,7 @@
 }
 
 .BacktoLoginForContactUsScreen {
-  background-color: rgb(38, 54, 63);;
+  background-color: rgb(35, 79, 106);
   color: white; 
   padding: 8px 15px; 
   border-radius: 5px; 
@@ -84,13 +84,12 @@
 }
 
 .formGroupForContactUsScreen button {
-  background-color:rgb(38, 54, 63);
+  background-color: rgb(35, 79, 106);
   color: white;
+  padding: 8px 16px;
   border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s;
 }
 
 .formGroupForContactUsScreen button:hover {

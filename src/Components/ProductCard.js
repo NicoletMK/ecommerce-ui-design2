@@ -60,7 +60,7 @@ function ProductCard(props) {
             </div>
             <div className='detailContainer'>
                 <div className='titleContainer'>
-                    <h1 className='productTitle'> <b> {props.productName}</b> </h1>
+                    <h1 className='productTitle'>  {props.productName}</h1>
                     <div className='ProductPriceAndRatingConatiner1'>
                         <h1 className='productPrice'> Price: ${props.productPrice}  </h1>
                         <h1 className='productPrice'> Rating: <FaStar /> {props.productRating} </h1>

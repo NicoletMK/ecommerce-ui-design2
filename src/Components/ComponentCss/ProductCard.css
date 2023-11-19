@@ -6,9 +6,9 @@
   flex-direction: column;
   overflow: hidden;
   width: 45vh;
-  height: 50vh;
+  height: 60vh;
   max-width: 400px; /* Maximum width for large screens */
-  max-height: 300px;
+  max-height: 400px;
   border: 1px solid rgba(164, 200, 200, 0.01);
 }
 
@@ -21,7 +21,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 40%;
+  height: 50%;
   background-color: white;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -47,7 +47,7 @@
 }
 
 .productTitle {
-  font-size: 1.2em;
+  font-size: 1.5em;
   margin-bottom: 5px;
   text-align: center;
   
@@ -88,7 +88,8 @@
 }
 
 .product-icon svg {
-  color: rgb(50, 102, 103);
+  color: rgb(25, 58, 79);
+  
 }
 .product-icon:hover svg {
   transform: scale(1.2);

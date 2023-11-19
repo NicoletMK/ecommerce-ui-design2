@@ -9,7 +9,7 @@
 
 .WishlistHeader{
     border: 1px solid #ddd;
-    box-shadow: 2px 2px 5px 5px rgb(167, 165, 165);
+    box-shadow: 2px 2px 5px 5px rgb(167, 165, 165,0.4);
     border-radius: 15px;
     margin-top: 10px;
     margin-right: 10px;
@@ -36,7 +36,7 @@
     /* overflow: hidden; */
 }
 
-.WishlistAddToCartButton{
+.WishlistAddToCartButton, .RemoveItemButton{
     background-color: rgb(35, 79, 106);
     color: #fff;
     border: none;
@@ -48,4 +48,10 @@
     margin-top: 10px;
     margin-left: 10px;
     cursor: pointer;
+    border-radius: 4px;
+
+}
+
+.WishlistAddToCartButton:hover, .RemoveItemButton:hover{
+    background-color: #3b7dbd; 
 }

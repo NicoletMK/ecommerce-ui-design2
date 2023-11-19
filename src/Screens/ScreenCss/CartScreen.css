@@ -6,7 +6,7 @@
   background-color: #fff;
   border: 1px solid #ccc;
   padding: 20px;
-  box-shadow: 2px 2px 5px 5px rgb(167, 165, 165);
+  box-shadow: 2px 2px 5px 5px rgb(167, 165, 165,0.4);
   border-radius: 15px;
   width: 80%;
   margin: 20px; 
@@ -39,7 +39,7 @@
   background-color: #fff;
   border: 1px solid #ccc;
   padding: 20px;
-  box-shadow: 2px 2px 5px 5px rgb(167, 165, 165);
+  box-shadow: 2px 2px 5px 5px rgb(167, 165, 165,0.4);
   border-radius: 15px;
   height: auto;
   width: auto;
@@ -91,7 +91,7 @@
   cursor: pointer;
 }
 .CheckoutButton {
-  background-color: rgb(35, 79, 106);;
+  background-color: rgb(35, 79, 106);
   color: #fff;
   border: none;
   padding: 8px 16px;
@@ -101,4 +101,9 @@
   font-size: 14px;
   margin-top: 10px;
   cursor: pointer;
+  border-radius: 4px;
+}
+
+.CheckoutButton:hover{
+  background-color: #3b7dbd;
 }
