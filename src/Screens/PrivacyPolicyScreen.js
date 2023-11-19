@@ -5,18 +5,18 @@ import { Link } from 'react-router-dom';
 function PrivacyPolicyScreen() {
   return (
     <div className="MainContainerForPrivacyScreen">
-       <Link to='/LoginScreen'>
-      <button className="privacy-backButton">Back to Login</button>
+      <Link to='/LoginScreen'>
+        <button className="privacy-backButton">Back to Login</button>
       </Link>
       <div style={{ textAlign: 'center' }}>
-  <h1>
-    <span style={{ fontWeight: 'bold', color: 'rgb(237, 82, 15)' }}>
-      Privacy Statement for TechnoTreasure
-    </span>
-    <br />
-    Last updated: 10/18/2023
-  </h1>
-</div>
+        <h1>
+          <span style={{ fontWeight: 'bold', color: 'rgb(237, 82, 15)' }}>
+            Privacy Statement for TechnoTreasure
+          </span>
+          <br />
+          Last updated: 10/18/2023
+        </h1>
+      </div>
 
 
       <ul>
@@ -33,7 +33,7 @@ function PrivacyPolicyScreen() {
           Usage Information: We may collect information about your interactions with our website, such as your IP address, browser type, and operating system.
         </li>
         <li>
-          c. Cookies and Tracking Technologies: We use cookies and similar technologies to collect data about your browsing activity on our website for analytics and advertising purposes. You can manage your cookie preferences through your browser settings.
+          Cookies and Tracking Technologies: We use cookies and similar technologies to collect data about your browsing activity on our website for analytics and advertising purposes. You can manage your cookie preferences through your browser settings.
         </li>
       </ul>
 
@@ -81,18 +81,31 @@ function PrivacyPolicyScreen() {
       <ul>
         <li>
           We may update this Privacy Statement to reflect changes in our practices or for legal and regulatory reasons. Any changes will be posted on this page with an updated "last updated" date.
+
         </li>
       </ul>
 
       <h2>7. Contact Us</h2>
       <ul>
         <li>
-          If you have any questions or concerns about this Privacy Statement or your personal information, please contact us at:
-        </li>
-      </ul>
-    </div>
+        If you have any questions or concerns about this Privacy Statement or your personal information, please contact us at:
+        <p>
+          <strong>Email:  </strong>
+          <a href="mailto:technotreasure@gmail.com">technotreasure@gmail.com</a>
+        </p>
+        <p>
+          <strong>Phone:  </strong>
+          <a href=" tel:+123-456-7890">+123-456-7890</a>
+        </p>
+        <p>
+          <strong>Mailing Address:  </strong> 6803 Chase Hill Blvd, San Antonio, TX
+        </p>
+        
+      </li>
+    </ul>
+    </div >
   );
-  
+
 }
 
 export default PrivacyPolicyScreen;

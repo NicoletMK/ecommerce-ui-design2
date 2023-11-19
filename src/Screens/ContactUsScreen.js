@@ -5,23 +5,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faPhone, faAddressCard } from '@fortawesome/free-solid-svg-icons';
 
 function ContactUsScreen() {
-  
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
   const handleSend = () => {
-    
+
     console.log("Sending message:", { name, email, message });
-     alert("Message sent successfully!");
-     setName("");
-     setEmail("");
-     setMessage("");
+    alert("Message sent successfully!");
+    setName("");
+    setEmail("");
+    setMessage("");
   };
 
   return (
-    
-    
+
+
     <div className="MainContainerForContactUsScreen">
 
       <div className="BackToLoginContainerForContactUsScreen">
@@ -35,21 +35,30 @@ function ContactUsScreen() {
       </div>
 
       <div className="ContentContainerForContactUsScreen">
-        
-        
+
+
         <div className="ContactInfoSectionForContactUsScreen">
-        
-           <p><FontAwesomeIcon icon={faEnvelope} /> technotreasure@gmail.com</p>
-            <p><FontAwesomeIcon icon={faPhone} /> +123-456-7890</p>
-            <p><FontAwesomeIcon icon={faAddressCard} /> 6803 Chase Hill Blvd, San Antonio, TX</p>
+
+          <p>
+            <FontAwesomeIcon icon={faEnvelope} />
+            <a href="mailto:technotreasure@gmail.com">  technotreasure@gmail.com</a>
+          </p>
+          <p>
+            <FontAwesomeIcon icon={faPhone} />
+            <a href="tel:+123-456-7890">  +123-456-7890</a>
+          </p>
+          <p>
+            <FontAwesomeIcon icon={faAddressCard} /> 
+             6803 Chase Hill Blvd, San Antonio, TX
+          </p>
         </div>
 
         <div className="ContactFormSectionForContactUsScreen">
-          
+
           <h2>Hola!! How can we help you? </h2>
-          
+
           <form className="formGroupForContactUsScreen" >
-            
+
             <div className="form-groupForContactUsScreen">
               <label>Name:</label>
               <input
@@ -58,7 +67,7 @@ function ContactUsScreen() {
                 onChange={(e) => setName(e.target.value)}
               />
             </div>
-            
+
             <div className="form-groupForContactUsScreen">
               <label>Email:</label>
               <input
@@ -67,7 +76,7 @@ function ContactUsScreen() {
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
-            
+
             <div className="form-groupForContactUsScreen">
               <label>Message:</label>
               <textarea
@@ -77,14 +86,14 @@ function ContactUsScreen() {
               ></textarea>
             </div>
             <button type="button" onClick={handleSend}>Send</button>
-            
-          
+
+
           </form>
-        
+
         </div>
       </div>
     </div>
-  
+
   );
 }
 
