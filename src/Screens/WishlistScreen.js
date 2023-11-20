@@ -86,10 +86,31 @@ function WishlistScreen(props) {
         ) : (
             <div className='ProductsInWishlistContainer'>
                 {productsWishlist.map((product, index) => (
+                    
                     <div key={index} className='ProductCard'>
                         <ul>
+                            
                             <li> <img src={product.productImagePath} alt="error" /> </li>
-                            <li> <h3> {product.productName} </h3> </li>
+                            
+                            
+                            <Link 
+                              to='/ProductDetailScreen'
+                              state={{
+                                productName:product.productName,
+                                productPrice: product.productPrice,
+                                productId: product.productId,
+                                productRating: product.productRating,
+                                productImagePath: product.productImagePath,
+                                productImagePath1: product.productImagePath1,
+                                productImagePath2: product.productImagePath2,
+                                productImagePath3: product.productImagePath2,
+                                productImagePath4: product.productImagePath4,
+                                productDescription: product.productDescription,
+                                productCategory: product.productCategory
+                              }}
+                            >
+                              <li> <h3> {product.productName} </h3> </li>
+                            </Link>
                             <li>Description: {product.productDescription} </li>
                             <li> Rating:{renderStars(product.productRating)}</li>
                             <li> Price: ${Number(product.productPrice).toFixed(2)} </li>
@@ -102,6 +123,8 @@ function WishlistScreen(props) {
                             </Link>
                         </ul>
                     </div>
+                
+                
                 ))}
             </div>
         )}

@@ -128,14 +128,32 @@ function CartScreen() {
                 <img src={product.productImagePath} alt="Product" />
                 <div className="ProductsDetails">
                   <ul>
-                    <li> Product ID: {product.productId} </li>
-                    <li> Product Name: {product.productName} </li>
+                    <li> <b> Product ID: {product.productId} </b> </li>
+
+                    <Link 
+                      to='/ProductDetailScreen'
+                      state={{
+                        productName:product.productName,
+                        productPrice: product.productPrice,
+                        productId: product.productId,
+                        productRating: product.productRating,
+                        productImagePath: product.productImagePath,
+                        productImagePath1: product.productImagePath1,
+                        productImagePath2: product.productImagePath2,
+                        productImagePath3: product.productImagePath2,
+                        productImagePath4: product.productImagePath4,
+                        productDescription: product.productDescription,
+                        productCategory: product.productCategory
+                      }}
+                    >   
+                    <li> <b> Product Name: {product.productName} </b></li>
+                    </Link>
                     {/* <li>
                       Qty: <button onClick={() => handleDecreaseQuantity(product.productId)}>-</button>{' '}
                       {product.quantity} <button onClick={() => handleIncreaseQuantity(product.productId)}>+</button>
                     </li> */}
                     <li>
-                      Count:{' '}
+                      <b>Count:</b>{' '}
                       <input
                         type="number"
                         value={product.count}
@@ -145,8 +163,8 @@ function CartScreen() {
                         }
                       />
                     </li>
-                    <li> Unit Price: ${product.productPrice} </li>
-                    <li> Product Total: ${calculateProductTotal(product).toFixed(2)} </li>
+                    <li> <b> Unit Price: ${product.productPrice} </b> </li>
+                    <li> <b> Product Total: ${calculateProductTotal(product).toFixed(2)} </b> </li>
                     <div>
                       <button className="RemoveItemButton" onClick={() => handleRemoveFrom(product.productId)}>
                         Remove Item

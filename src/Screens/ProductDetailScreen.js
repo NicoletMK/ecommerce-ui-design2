@@ -80,6 +80,8 @@ function ProductDetail(props) {
     rating: data.state.productRating,
   };
 
+  console.log(product);
+
   const [selectedImage, setSelectedImage] = useState(product.images[0]);
 
   const [newReview, setNewReview] = useState({ user: '', comment: '', rating: 5 });
