@@ -75,6 +75,7 @@ function ProductCard(props) {
                             to={'/WishlistScreen'}
                             style={{ textDecoration: 'none', color: '#0C2340' }}
                             onClick={(e) => WishlistIconClicked(props)}
+                            aria-label="Add to Wishlist"
                         >
                             <FontAwesomeIcon icon={faHeart} size="1x" />
                         </Link>
@@ -84,6 +85,7 @@ function ProductCard(props) {
                             state={{ productName: props.productName, productId: props.productId }}
                             style={{ textDecoration: 'none', color: '#0C2340' }}
                             onClick={(e) => CartIconClicked(props)}
+                            aria-label="Add to Cart"
                         >
                             <FontAwesomeIcon icon={faCartShopping} size="1x" />
                         </Link>
