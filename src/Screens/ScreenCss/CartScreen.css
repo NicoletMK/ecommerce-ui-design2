@@ -55,6 +55,7 @@
   margin: 10px;
   padding: 10px;
   border-radius: 10px;
+  text-align: justify;
 }
 
 .ProductCard img {
