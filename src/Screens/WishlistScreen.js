@@ -90,7 +90,7 @@ function WishlistScreen(props) {
                     <div key={index} className='ProductCard'>
                         <ul>
                             
-                            <li> <img src={product.productImagePath} alt="error" /> </li>
+                            <li> <img src={product.productImagePath} alt={product.productName} /> </li>
                             
                             
                             <Link 

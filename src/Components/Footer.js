@@ -8,7 +8,7 @@ function Footer() {
         <footer className='footerAllContainer'>
             <div className="footerContent">
                 <div className="footerSection">
-                    <h3 className="footer-Title"><a href='/MainScreen' className="navbar-brand">TechnoTreasure</a></h3>
+                    <h3 className="footer-Title"> TechnoTreasure</h3>
                     <p className="footerDescription">TechnoTreasure is your go-to destination for all things tech.</p>
                     <div className="socialMedia">
                         <a href="https://www.facebook.com/TechnoTreasureUI" className="socialLink" target="_blank" rel="noopener noreferrer" aria-label="Visit TechnoTreasure on Facebook">
