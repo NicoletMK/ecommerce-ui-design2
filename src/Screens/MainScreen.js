@@ -63,8 +63,8 @@ function MainScreen(props) {
 
   const handleCategoryFilter = (category) => {
     setSelectedCategory(category);
-    setSearchQuery(''); // Reset search query
-    setSortOption('none'); // Reset sort option
+    setSearchQuery(''); 
+    setSortOption('none'); 
     setCurrentPage(1);
   };
 

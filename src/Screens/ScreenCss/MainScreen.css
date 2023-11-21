@@ -77,9 +77,9 @@
 }
 
 .sortbyLabel  {
-    margin-right: 10px; /* Increased for better spacing */
-    font-weight: bold; /* Makes the label text bolder */
-    color: #333; /* Adjust the color as per your design */
+    margin-right: 10px; 
+    font-weight: bold; 
+    color: #333; 
     padding-left: 20px;
 }
 
@@ -130,7 +130,7 @@
     
     margin: 0;
     position: absolute;
-    top: calc(100% + 2px); /* Adjust to position the dropdown correctly */
+    top: calc(100% + 2px); 
 
     background-color: white;
     border: 1px solid #ccc;
