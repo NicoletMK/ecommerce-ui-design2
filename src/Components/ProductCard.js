@@ -56,7 +56,7 @@ function ProductCard(props) {
 
         <div className="productCardContainer">
             <div className='imageContainer'>
-                <img className='imagePlaceholder' src={props.productImagePath} alt="Error!" />
+                <img className='imagePlaceholder' src={props.productImagePath} alt="" />
             </div>
             <div className='detailContainer'>
                 <div className='titleContainer'>

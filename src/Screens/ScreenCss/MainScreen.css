@@ -68,9 +68,91 @@
     text-align: center;
 }
 
-.SortBy label {
-    padding-left: 10px;
+.SortBy {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+    padding-left: 20px;
 }
+
+.sortbyLabel  {
+    margin-right: 10px; /* Increased for better spacing */
+    font-weight: bold; /* Makes the label text bolder */
+    color: #333; /* Adjust the color as per your design */
+    padding-left: 20px;
+}
+
+.SortBy .combobox-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: #FFF;
+    border: 1px solid #a2a5a8;
+    box-shadow: 0 2px 4px rgba(234, 232, 232, 0.1);
+    width: 150px; 
+    height: 39px;
+}
+
+.SortBy input[type="text"] {
+    flex-grow: 1;
+    width: 130px;
+    padding: 10px;
+    border: none;
+    font-size: 15px;
+    color: #333; /* Text color */
+    background-color: transparent;
+}
+
+.SortBy .arrow {
+    cursor: pointer;
+    padding: 10px;
+    background-color: #e9e9eb;
+    border-left: 1px solid #ccc;
+   
+}
+
+.SortBy .arrow::before {
+    content: '';
+    border-style: solid;
+    border-width: 5px 5px 0 5px;
+    border-color: #0C2340 transparent transparent transparent; 
+    display: inline-block;
+}
+
+.SortBy .arrow.open::before {
+    transform: rotate(180deg);
+}
+
+.SortBy ul {
+    list-style-type: none;
+    padding: 0px;
+    
+    margin: 0;
+    position: absolute;
+    top: calc(100% + 2px); /* Adjust to position the dropdown correctly */
+
+    background-color: white;
+    border: 1px solid #ccc;
+    border-top: none;
+    z-index: 1000;
+    max-height: 200px;
+    overflow-y: auto;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.SortBy li {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.SortBy li:hover {
+    background-color: #f0f0f0;
+}
+
 
 
 .category-container {

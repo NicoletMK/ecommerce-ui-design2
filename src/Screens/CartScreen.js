@@ -125,7 +125,7 @@ function CartScreen() {
           <div className="ProductsInCartContainer">
             {products.map((product, index) => (
               <div key={index} className="ProductCard">
-                <img src={product.productImagePath} alt="Product" />
+                <img src={product.productImagePath} alt={product.productName} />
                 <div className="ProductsDetails">
                   <ul>
                     <li> <b> Product ID: {product.productId} </b> </li>

@@ -18,27 +18,42 @@ function MainScreen(props) {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
-  const [sortOption, setSortOption] = useState('none');
+  const [sortOption, setSortOption] = useState('None');
+
+  const [isComboboxOpen, setIsComboboxOpen] = useState(false);
+  const sortOptions = ['None', 'Low to High price', 'High to Low price', 'Rating'];
+
+  const handleComboboxClick = () => {
+      setIsComboboxOpen(!isComboboxOpen);
+  };
+
+  const handleSortOptionClick = (option) => {
+      setSortOption(option);
+      setIsComboboxOpen(false);
+  };
 
   const itemsPerPage = 12;
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
 
+  
+
   const sortProducts = (products, option) => {
-    if (option === 'price') {
-      return products.slice().sort((a, b) => a.productPrice - b.productPrice);
+    if (option === 'Low to High price') {
+        return products.slice().sort((a, b) => a.productPrice - b.productPrice);
     }
-    else if (option === 'opp-price') {
-      return products.slice().sort((b, a) => a.productPrice - b.productPrice);
+    else if (option === 'High to Low price') {
+        return products.slice().sort((b, a) => a.productPrice - b.productPrice);
     }
-    else if (option === 'rating') {
-      return products.slice().sort((b, a) => a.productRating - b.productRating);
+    else if (option === 'Rating') {
+        return products.slice().sort((b, a) => a.productRating - b.productRating);
     }
-    else if (option === 'none') {
-      return products;
+    else if (option === 'None') {
+        return products;
     }
     return products;
-  };
+};
+
 
 
 
@@ -98,19 +113,39 @@ function MainScreen(props) {
         <div className='TitleContainer'>
           <h1 className='TitleContainerH1Only'> Browse All Products</h1>
         </div>
+        <label htmlFor="sortInput" className='sortbyLabel'>Sort By:</label>
+        <div className='SortBy'>
+                           
+                            <div className="combobox-wrapper">
+                                <input
+                                    id="sortInput"
+                                    type="text"
+                                    role="combobox"
+                                    aria-autocomplete="none"
+                                    aria-expanded={isComboboxOpen}
+                                    aria-controls="sortOptionsList"
+                                    onClick={handleComboboxClick}
+                                    value={sortOption}
+                                    readOnly
+                                />
+                                <span className={`arrow ${isComboboxOpen ? 'open' : ''}`}
+                                    onClick={handleComboboxClick}></span>
+                            </div>
+                            {isComboboxOpen && (
+                                <ul id="sortOptionsList" role="listbox">
+                                    {sortOptions.map((option, index) => (
+                                        <li
+                                            key={index}
+                                            role="option"
+                                            onClick={() => handleSortOptionClick(option)}
+                                        >
+                                            {option}
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+                        </div>
 
-        <div className='ConatinerForSearchBoxAndFilter'>
-
-          <div className='SortBy'>
-            <label>Sort By: </label>
-            <select onChange={(e) => setSortOption(e.target.value)}>
-              <option value='none'>None</option>
-              <option value='price'>Low Price - High Price</option>
-              <option value='opp-price'>High Price - Low Price</option>
-              <option value='rating'>Rating</option>
-            </select>
-          </div>
-        </div>
 
         <div className='SampleProductsContainer'>
           {currentProducts.map((product, index) => (
@@ -118,7 +153,7 @@ function MainScreen(props) {
             <div key={index} >
               <Link to={'/ProductDetailScreen'}
                 state={{
-                  productName:product.name,
+                  productName: product.name,
                   productPrice: product.productPrice,
                   productId: product.productId,
                   productRating: product.productRating,
